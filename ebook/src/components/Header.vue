@@ -1,7 +1,7 @@
 <template>
     <div>
-        <HeaderUpper/>
-        <Navigation/>
+        <HeaderUpper :image="image"/>
+        <Navigation :profile="profile" />
     </div>
 </template>
 
@@ -10,6 +10,10 @@ import HeaderUpper from "./HeaderUpper";
 import Navigation from "./Navigation";
 export default{
     name:"Header",
+    props:{
+        image: String,
+        profile: String
+    },
     components:{
         HeaderUpper,
         Navigation

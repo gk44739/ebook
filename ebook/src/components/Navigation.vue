@@ -15,7 +15,7 @@
                 <div class="header-phone-div">
                     <div class="header-phone-div-content">
                         <div>
-                            <img src="../assets/profile.png" style="width:40px; height:40px;" alt="">
+                            <img :src="profile" style="width:40px; height:40px;" alt="">
                         </div>
                     </div>
                 </div>
@@ -25,7 +25,10 @@
 
 <script>
 export default {
-    name:"Navigation"
+    name:"Navigation",
+    props:{
+        profile: String
+    }
 }
 </script>
 

@@ -2,7 +2,7 @@
     <div class="upper" id="upp">
         <div id="up">
             <div class="logo">
-                <img src="../assets/bookshop2.png" alt="">
+                <img :src="image" alt="">
             </div>
             <div class="cart">
                 <div class="search">
@@ -27,8 +27,10 @@
 
 <script>
 export default {
-  name: 'HeaderUpper'
-  
+  name: 'HeaderUpper',
+  props:{
+      image: String
+  }
 }
 </script>
 
