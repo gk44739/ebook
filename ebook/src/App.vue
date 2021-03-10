@@ -1,40 +1,25 @@
 <template>
   <div id="app">
     <Header :image="image" :profile="profile" />
-<<<<<<< HEAD
-    <Home :person="person"/>
-    <Footer :footerImg="footerLogo"/>
-=======
     <Home :person="person" :arrival="arrival" />
->>>>>>> 734c4aec889f1cad7fdd0e592bd5fa910df78039
+    <Footer :footerImg="footerLogo"/>
   </div>
 </template>
 
 <script>
-<<<<<<< HEAD
 // Images
-import Header from "./components/Header"
 import logo from "./assets/bookshop2.png"
 import profile from "./assets/profile.png"
 import person from "./assets/personi.png"
 import footerLogo from "./assets/footerLogo.png"
+import arrival from "./assets/arrival.png"
 
 // Components
-import Home from "./pages/Home"
-import Footer from "./components/Footer"
-=======
-// Image imports
-import logo from "./assets/bookshop2.png"
-import profile from "./assets/profile.png"
-import person from "./assets/personi.png"
-import arrival from "./assets/arrival.png"
-//--------------
-
-// Component imports
 import Header from "./components/Header"
 import Home from "./pages/Home"
-// -----------------
->>>>>>> 734c4aec889f1cad7fdd0e592bd5fa910df78039
+import Footer from "./components/Footer"
+//--------------
+
 
 export default {
   name: 'App',
@@ -43,11 +28,8 @@ export default {
           image: logo,
           profile: profile,
           person: person,
-<<<<<<< HEAD
-          footerLogo:footerLogo
-=======
+          footerLogo:footerLogo,
           arrival: arrival
->>>>>>> 734c4aec889f1cad7fdd0e592bd5fa910df78039
       }
   },
   components: {
