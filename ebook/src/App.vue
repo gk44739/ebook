@@ -2,15 +2,21 @@
   <div id="app">
     <Header :image="image" :profile="profile" />
     <Home :person="person"/>
+    <Footer :footerImg="footerLogo"/>
   </div>
 </template>
 
 <script>
+// Images
 import Header from "./components/Header"
 import logo from "./assets/bookshop2.png"
 import profile from "./assets/profile.png"
 import person from "./assets/personi.png"
+import footerLogo from "./assets/footerLogo.png"
+
+// Components
 import Home from "./pages/Home"
+import Footer from "./components/Footer"
 
 export default {
   name: 'App',
@@ -18,12 +24,14 @@ export default {
       return {
           image: logo,
           profile: profile,
-          person: person
+          person: person,
+          footerLogo:footerLogo
       }
   },
   components: {
     Header,
-    Home
+    Footer,
+    Home,
   }
   
 }
