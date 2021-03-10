@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header :image="image" :profile="profile" />
-    <Home :person="person" :arrival="arrival" />
+    <router-view />
     <Footer :footerImg="footerLogo"/>
   </div>
 </template>
@@ -10,13 +10,10 @@
 // Images
 import logo from "./assets/bookshop2.png"
 import profile from "./assets/profile.png"
-import person from "./assets/personi.png"
 import footerLogo from "./assets/footerLogo.png"
-import arrival from "./assets/arrival.png"
 
 // Components
 import Header from "./components/Header"
-import Home from "./pages/Home"
 import Footer from "./components/Footer"
 //--------------
 
@@ -27,15 +24,12 @@ export default {
       return {
           image: logo,
           profile: profile,
-          person: person,
-          footerLogo:footerLogo,
-          arrival: arrival
+          footerLogo:footerLogo
       }
   },
   components: {
     Header,
-    Footer,
-    Home,
+    Footer
   }
   
 }

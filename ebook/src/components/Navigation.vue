@@ -4,11 +4,9 @@
 
                 <div class="header-list">
                     <ul>
-                        <a href="home.php"><li>HOME</li></a>
-                        <a href="about.php"><li>ABOUT US</li></a>
-                        <a href="contact.php"><li>CONTACT US</li></a>
-                        <a href="AllBooks.php"><li>BOOKS</li></a>
-                        <!-- <a href="libriAdmin.php"><li>DASHBOARD</li></a> -->
+                        <li><router-link to="/">Home</router-link></li>
+                        <li><router-link to="/About">ABOUT US</router-link></li>
+                        <li><router-link to="/Contact">CONTACT</router-link></li>
                     </ul>
                 </div>
 
