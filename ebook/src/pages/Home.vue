@@ -78,22 +78,85 @@
                     </div>
                 </div>
             </div>
+            <div class="right-content">
+                <div class="title">
+                    <div>
+                        BEST SELLER
+                    </div>
+                    <div>
+                        <a href="AllBooks.php">SEE MORE</a>
+                    </div>
+                </div>
+                
+                <div class="three-books">
+                    <!-- Book component -->
+                    <Book/>
+                </div>
+                
+                <div class="new-arrival">
+                    <img src="../assets/arrival.png" alt="">
+                    <div>
+                        <h2>
+                            <span>NEW</span><br>ARRIVALS
+                        </h2>
+                        <p>
+                            Lorem Ipsum is simply <br>dummy text
+                        </p>
+                    </div>
+                </div>
+                <div class="title">
+                    <div>
+                    FEATURED PRODUCTS
+                    </div>
+                    <div>
+                        <a href="AllBooks.php">SEE MORE</a>
+                    </div>
+                </div>
+                <div class="four-books">
+                    <div class="book">
+                        <img src="Images/test" alt="Photo">
+                        <div class="name-price">
+                            <div class="name-div">
+                                <div class="name">
+                                    Title 
+                                </div>
+                                <div class="rating">
+                                    <!-- <i>Autori:</i>    -->
+                                    Autori
+                                </div>
+                            </div>
+                            <div class="name-div">
+                                <p>
+                                    <a href="book.php">Buy now</a>
+                                </p>
+                                <p class="price">
+                                    Price
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </template>
 
 <script>
-
+import Book from "../components/Book"
 export default {
     name: "Home",
     props:{
         person: String
+    },
+    components:{
+        Book
     }
 }
 </script>
 
 
-<style scoped>
+<style>
 .main {
     width: 80%;
     margin: 0 auto;
