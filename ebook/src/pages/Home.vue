@@ -137,7 +137,19 @@
                     </div>
                 </div>
             </div>
-
+        </div>
+         <div class="photo-album">
+            <div class="foto-1">
+                <img src="../assets/foto1.png" alt="">
+            </div>
+            <div class="foto-2">
+                <div class="foto1">
+                    <img src="../assets/foto2.png" alt="">
+                </div>
+                <div class="foto2">
+                    <img src="../assets/foto3.png" alt="">
+                </div>
+            </div>
         </div>
     </div>
 </template>
