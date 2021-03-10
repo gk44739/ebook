@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <Header :image="image" :profile="profile" />
+    <Home :person="person"/>
   </div>
 </template>
 
@@ -8,17 +9,21 @@
 import Header from "./components/Header"
 import logo from "./assets/bookshop2.png"
 import profile from "./assets/profile.png"
+import person from "./assets/personi.png"
+import Home from "./pages/Home"
 
 export default {
   name: 'App',
   data: function () {
       return {
           image: logo,
-          profile: profile
+          profile: profile,
+          person: person
       }
   },
   components: {
-    Header
+    Header,
+    Home
   }
   
 }
