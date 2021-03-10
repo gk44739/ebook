@@ -1,16 +1,22 @@
 <template>
   <div id="app">
     <Header :image="image" :profile="profile" />
-    <Home :person="person"/>
+    <Home :person="person" :arrival="arrival" />
   </div>
 </template>
 
 <script>
-import Header from "./components/Header"
+// Image imports
 import logo from "./assets/bookshop2.png"
 import profile from "./assets/profile.png"
 import person from "./assets/personi.png"
+import arrival from "./assets/arrival.png"
+//--------------
+
+// Component imports
+import Header from "./components/Header"
 import Home from "./pages/Home"
+// -----------------
 
 export default {
   name: 'App',
@@ -18,7 +24,8 @@ export default {
       return {
           image: logo,
           profile: profile,
-          person: person
+          person: person,
+          arrival: arrival
       }
   },
   components: {

@@ -94,7 +94,7 @@
                 </div>
                 
                 <div class="new-arrival">
-                    <img src="../assets/arrival.png" alt="">
+                    <img :src="arrival" alt="">
                     <div>
                         <h2>
                             <span>NEW</span><br>ARRIVALS
@@ -147,7 +147,8 @@ import Book from "../components/Book"
 export default {
     name: "Home",
     props:{
-        person: String
+        person: String,
+        arrival: String
     },
     components:{
         Book
