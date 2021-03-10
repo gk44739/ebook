@@ -2,7 +2,9 @@
     <div class="upper" id="upp">
         <div id="up">
             <div class="logo">
-                <img :src="image" alt="">
+                <router-link to="/">
+                    <img :src="image" alt="">
+                </router-link>
             </div>
             <div class="cart">
                 <div class="search">

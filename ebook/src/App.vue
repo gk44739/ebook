@@ -15,16 +15,15 @@ import footerLogo from "./assets/footerLogo.png"
 // Components
 import Header from "./components/Header"
 import Footer from "./components/Footer"
-//--------------
 
 
 export default {
   name: 'App',
   data: function () {
       return {
-          image: logo,
-          profile: profile,
-          footerLogo:footerLogo
+        image: logo,
+        profile: profile,
+        footerLogo:footerLogo
       }
   },
   components: {
