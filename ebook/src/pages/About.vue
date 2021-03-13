@@ -3,15 +3,7 @@
         
         <h2 style="text-align: center; margin-bottom:30px;">ABOUT US</h2>
 
-        <div class="ourmission">
-            <img src="../assets/funnylaptop.jpg" />
-            <div class="ourmissiontext">
-                <h1>OUR MISSION</h1>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-                   Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incid
-                </p>
-            </div>
-        </div>
+        <AboutBannerFirst />
 
         <div class="meetourteam">
             <h1 style="text-align: center;">MEET OUR TEAM</h1>
@@ -37,12 +29,14 @@
 
 <script>
 import Employee from "../components/Employee"
+import AboutBannerFirst from "../components/AboutBannerFirst"
 
 export default {
     name: "About",
     components:{
-        Employee
-    }
+        Employee,
+        AboutBannerFirst
+    },
 }
 </script>
 
@@ -51,21 +45,6 @@ export default {
     font-family: 'Segoe UI';
     width: 80%;
     margin: 0 auto;
-}
-.ourmission{
-    display:flex;
-    flex-direction: row;
-}
-
-.ourmissiontext{
-    margin: 40px 20px 20px 20px;
-    padding: 5px;
-}
-.ourmissiontext h1{
-    margin-bottom: 40px;
-}
-.ourmissiontext p{
-    line-height: 30px;
 }
 
 .meetourteam{
