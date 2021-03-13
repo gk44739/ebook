@@ -1,6 +1,8 @@
 <template>
     <div class="main">
+
         <div class="main-content">
+
             <div class="left-content">
                 <div class="title">
                     HOT DEALS
@@ -78,6 +80,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="right-content">
                 <div class="title">
                     <div>
@@ -137,6 +140,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
          <div class="photo-album">
             <div class="foto-1">
@@ -158,7 +162,6 @@
 import Book from "../components/Book"
 export default {
     name: "Home",
-    
     components:{
         Book
     }

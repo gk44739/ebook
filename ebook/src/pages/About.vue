@@ -1,5 +1,6 @@
 <template>
     <div class="main">
+        
         <h2 style="text-align: center; margin-bottom:30px;">ABOUT US</h2>
 
         <div class="ourmission">
@@ -11,13 +12,16 @@
                 </p>
             </div>
         </div>
+
         <div class="meetourteam">
             <h1 style="text-align: center;">MEET OUR TEAM</h1>
             <p style="text-align:center;">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</p>
         </div>
+
         <div class="people">
             <Employee />
         </div>
+
         <div class="ourservice">
             <div class="ourservicetext">
             <h1> OUR SERVICE</h1>
@@ -27,6 +31,7 @@
             </div>
             <img src="../assets/funnyphonecall.jpg" />
         </div>
+
     </div>
 </template>
 
