@@ -123,6 +123,7 @@
         background-color: #f3f3f3;
         border-top-right-radius: 40px;
         border-bottom-right-radius: 40px;
+        text-align: left;
     }
 
     .login-content{
