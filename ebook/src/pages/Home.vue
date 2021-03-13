@@ -9,7 +9,7 @@
                 </div>
                 <div class="first-offer">
                     <div class="offer-pic">
-                        <img src="Images/...." alt="Photo">
+                        <img src="../assets/book12.png" alt="Photo">
                     </div>
                     <div class="name-price">
                         <div class="name-div">
