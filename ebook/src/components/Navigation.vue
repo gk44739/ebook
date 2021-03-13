@@ -4,7 +4,7 @@
 
                 <div class="header-list">
                     <ul>
-                        <li><router-link to="/" exact>HOME</router-link></li>
+                        <li><router-link to="/Home" exact>HOME</router-link></li>
                         <li><router-link to="/About" exact>ABOUT US</router-link></li>
                         <li><router-link to="/Contact" exact>CONTACT</router-link></li>
                     </ul>
