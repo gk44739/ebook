@@ -11,25 +11,7 @@
                 <div class="title">
                     NEW ARRIVALS
                 </div>
-                <div class="arrival-div">
-                    <div class="arrival-book">
-                        <div class="arrival-img">
-                            <img src="Images/Photo>" alt="Photo">
-                        </div>  
-                        <div class="arrival-book-content">
-                            <div>
-                                Titulli
-                            </div>
-                            <div>
-                                <i>Autori:</i>
-                                Autori
-                            </div>
-                            <div class="price">
-                                Price
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <LatestBook/>
                 <div class="title">
                     TESTIMONIALS
                 </div>
@@ -133,11 +115,13 @@
 <script>
 import Book from "../components/Book"
 import OfferBook from "../components/OfferBook"
+import LatestBook from "../components/LatestBook"
 export default {
     name: "Home",
     components:{
         Book,
-        OfferBook
+        OfferBook,
+        LatestBook
     }
 }
 </script>
