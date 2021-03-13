@@ -27,12 +27,13 @@
                 <form action="../Controller/contact_report.php" method="POST" onsubmit="return kontakto()">
                     <div class="rightside-content">
                         <input class="form-control" id="inputEmail" name="inputEmail" type="text" placeholder="Your Email">
-                    </div>
-                    <input class="subject" name="inputSubject" type="text" placeholder="Subject">
-                    
-                    <textarea class="message-content" name="inputMessage" placeholder="Your Message" rows="5" style="margin-top: 0px; margin-bottom: 0px; height: 131px;"></textarea>
+                        <input class="subject" name="inputSubject" type="text" placeholder="Subject">
+                        
+                        <textarea class="message-content" name="inputMessage" placeholder="Your Message" rows="5" style="margin-top: 0px; margin-bottom: 0px; height: 131px;"></textarea>
 
-                    <button name="submitContact">CONTACT US</button>
+                        <button name="submitContact">CONTACT US</button>
+                    </div>
+                    
                 </form>
             </div>
         </div> 
@@ -91,6 +92,7 @@ export default{
 
 .rightside{
     width: 50%;
+    padding: 0 15px;
 }
 
 .rightside h1{
@@ -107,14 +109,19 @@ export default{
     padding: 8px 16px;
     display: block;
     line-height: 1.25;
-    margin-right: 20px;
 }
 
 .rightside-content{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
-
+.rightside-content input,
+.rightside-content textarea{
+    width: 100%;
+}
+.form-control{
+    width: 100%;
+}
 .subject{
     background: #f5f5f5;
     color: #666;
