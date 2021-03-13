@@ -2,7 +2,7 @@
 <div class="backgroundNgjyra">
     <div class="main">
         <div class="login-img-div">
-            <img src="Images/loginpic.png" alt="">
+            <img src="../assets/loginpic.png" alt="">
             <div class="signUpButton">
                 <button onclick="SignUp()" id="registerButton">
                     Sign Up
