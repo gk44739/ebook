@@ -4,9 +4,9 @@
 
                 <div class="header-list">
                     <ul>
-                        <li><router-link to="/">HOME</router-link></li>
-                        <li><router-link to="/About">ABOUT US</router-link></li>
-                        <li><router-link to="/Contact">CONTACT</router-link></li>
+                        <li><router-link to="/" exact>HOME</router-link></li>
+                        <li><router-link to="/About" exact>ABOUT US</router-link></li>
+                        <li><router-link to="/Contact" exact>CONTACT</router-link></li>
                     </ul>
                 </div>
 
@@ -31,6 +31,10 @@ export default {
 </script>
 
 <style scoped>
+.router-link-exact-active{
+    color: #e94c37;
+}
+
 .header-size {
     background-color: #444444;
     height: 50px;
@@ -64,9 +68,9 @@ export default {
     padding: 0 20px;
 }
 
-.header-list ul a:nth-of-type(1) {
+/* .header-list ul a:nth-of-type(1) {
     color: #e94c37;
-}
+} */
 
 a {
     color: white;
