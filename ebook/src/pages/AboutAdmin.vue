@@ -1,25 +1,7 @@
 <template>
 <div class="main">
     <div class="right-side">
-            <div class="tabela-forma">
-                <table id="tabelaAbout" class="tabelaUser">
-                    <tr>
-                  
-                        <th>Emri</th>
-                        <th>Mbiemri</th>
-                        <th>Profesioni</th>
-                        <th>Foto</th>
-                        <th colspan="2">Action</th>
-                    </tr>   
-                        <tr><td>". $row["emri"] ."</td><td>". $row["mbiemri"]  ."</td><td>". $row["profesioni"] ."</td><td>". $row["foto"] ."</td>";
-                        
-                        <td>
-                            <a href="aboutAdmin.php?edit=">Edit</a>
-                            <a href="../Controller/AdminAbout.php?delete">Delete</a>
-                        </td>
-                        </tr>
-                </table>
-            </div>
+            <AboutAdminTable />
             <div class="libri-forma">
                 <form action="../Controller/AdminAbout.php" method="POST" onsubmit="return aboutAdmin()">
                         <div class="login-form">
@@ -57,10 +39,13 @@
 </template>
 
 <script>
-
+import AboutAdminTable from "../components/AboutAdminTable"
 
 export default {
-    
+    name:"AboutAdmin",
+    components:{
+        AboutAdminTable
+    },
 }
 
 </script>
@@ -73,16 +58,12 @@ export default {
 
 .right-side{
     height: 100vh;
-    width: 80%;
+    width: 100%;
     background-color: white;
     display: flex;
     flex-direction: row;
 }
-.tabela-forma{
-    width: 50%;
-    background-color: white;
-    margin-left: 20px;
-}
+
 .libri-forma{
     width: 50%;
 }
@@ -132,40 +113,6 @@ form{
     color: white;
     cursor: pointer;
     border-radius: 50px;
-}
-.tabelaUser{
-    border-collapse: collapse;
-    width: 100%;
-    font-size: 13px;
-    text-align: left;
-    
-}
-
-th{
-    background-color: #e94c37;
-    color: white;
-    padding: 5px;
-}
-td{
-    padding: 10px;
-    font-family: Arial;
-}
-
-td a{
-    text-decoration: none;
-    background-color: #e2343f;
-    font-size: 13px;
-    padding: 6px;
-    color: white;
-    border-radius: 5px;
-}
-
-td a:nth-child(1){
-    background-color: #41a4c5;
-}
-
-tr:nth-child(even) {
-    background-color: #f2f2f2;
 }
 
 .combobox{
