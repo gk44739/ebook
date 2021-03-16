@@ -1,6 +1,6 @@
 <template>
     <div class="book">
-        <img src="../assets/book2.png" alt="Photo">
+        <img :src="require(`../assets/${book.foto}`)" alt="Photo">
         <div class="name-price">
             <div class="name-div">
                 <div class="name">
