@@ -36,10 +36,15 @@ export default {
 }
 .tabelaUser{
     border-collapse: collapse;
-    width: 100%;
+    width: 80%;
     font-size: 13px;
     text-align: left;
     
+}
+.tabela-forma{
+    overflow: auto;
+    height: 450px;
+    margin-top: 10%;
 }
 
 th{
