@@ -47,7 +47,7 @@
                 
                 <div class="three-books">
                     <!-- Book component -->
-                    <Book/>
+                    <Book />
                 </div>
                 
                 <div class="new-arrival">
