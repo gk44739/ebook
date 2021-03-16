@@ -1,11 +1,9 @@
 <template>
      <div class="main">
-        
         <div class="right-side"> 
-                <div class="tabela-forma">
+            <div class="tabela-forma">
                 <table id="tabelaLibri" class="tabelaUser">
                     <tr>
-                  
                         <th>Title</th>
                         <th>Price</th>
                         <th>Photo</th>
@@ -14,50 +12,49 @@
                         <th colspan="2">Action</th>
                     </tr>   
                     <tr>
-                                <td>
-                                    <a >Edit</a>
-                                    <a >Delete</a>
-                                </td>
-                    </tr>
-                    
+                        <td>
+                            <a >Edit</a>
+                            <a >Delete</a>
+                        </td>
+                    </tr>   
                 </table>
             </div>
             <div class="libri-forma">
                 <form >
-                        <div class="login-form">
-                            <label for="">Titulli</label><br>
-                            <input type="text" name="titulli" id="titulliInput" >
-                            <input type="hidden" name="idHidden" id="" value = "<?php echo $id; ?>">
-                        </div>
-                        <div class="login-form">
-                            <label for="">Cmimi</label><br>
-                            <input type="text" name="cmimi" id="cmimiInput" >
-                        </div>
-                        <div class="login-form">
-                            <label for="">Photo</label><br>
-                            <input type="text" name="photo" id="photoInput" >
-                        </div>
-                        <div class="login-form">
-                            <label for="">Autori</label><br>
-                            <input type="text" name="autori" id="autoriInput" >
-                        </div>
-                        <div class="login-form">
-                            <label for="">Data</label><br>
-                            <input type="date" name="data" id="dataInput" >
-                        </div>
-                        <div class="butonat-div">                       
-                                        <button type="submit" name="ndryshoButton">
-                                            Ndrysho
-                                        </button>
+                    <div class="login-form">
+                        <label for="">Titulli</label><br>
+                        <input type="text" name="titulli" id="titulliInput" >
+                        <input type="hidden" name="idHidden" id="" value = "<?php echo $id; ?>">
+                    </div>
+                    <div class="login-form">
+                        <label for="">Cmimi</label><br>
+                        <input type="text" name="cmimi" id="cmimiInput" >
+                    </div>
+                    <div class="login-form">
+                        <label for="">Photo</label><br>
+                        <input type="text" name="photo" id="photoInput" >
+                    </div>
+                    <div class="login-form">
+                        <label for="">Autori</label><br>
+                        <input type="text" name="autori" id="autoriInput" >
+                    </div>
+                    <div class="login-form">
+                        <label for="">Data</label><br>
+                        <input type="date" name="data" id="dataInput" >
+                    </div>
+                    <div class="butonat-div">                       
+                                    <button type="submit" name="ndryshoButton">
+                                        Ndrysho
+                                    </button>
+                            
+                                    <button name="createLiber">
+                                        Ruaj
+                                    </button>
                                 
-                                        <button name="createLiber">
-                                            Ruaj
-                                        </button>
-                                    
-                            <button name="anuloButton">
-                                Anulo
-                            </button>
-                        </div>
+                        <button name="anuloButton">
+                            Anulo
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>
@@ -73,7 +70,7 @@
 </script>
 
 <style scoped>
-        *{
+    *{
         margin: 0;
         padding: 0;
     }
@@ -82,6 +79,8 @@
     .main{
         display: flex;
         flex-direction: row;
+        margin: 0 auto;
+        height: auto;
     }
     .right-side{
         height: 100vh;
@@ -89,6 +88,8 @@
         background-color: white;
         display: flex;
         flex-direction: row;
+        margin: 0 auto;
+        height: auto;
     }
     .tabela-forma{
         width: 50%;
@@ -129,6 +130,7 @@
         display: flex;
         flex-direction: row;
         justify-content: center;
+        margin-left: 50px;
     }
 
     .butonat-div button{
