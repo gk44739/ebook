@@ -2,7 +2,6 @@
     <div class="main">
 
         <div class="main-content">
-
             <div class="left-content">
                 <div class="title">
                     HOT DEALS
@@ -46,8 +45,7 @@
                 </div>
                 
                 <div class="three-books">
-                    <!-- Book component -->
-                    <Book />
+                    <Book/>
                 </div>
                 
                 <div class="new-arrival">
@@ -113,6 +111,7 @@
 </template>
 
 <script>
+import firebase from "../../firebase"
 import Book from "../components/Book"
 import OfferBook from "../components/OfferBook"
 import LatestBook from "../components/LatestBook"
@@ -122,6 +121,19 @@ export default {
         Book,
         OfferBook,
         LatestBook
+    },
+    data(){
+        return{
+            ref:firebase.firestore().collection('book'),
+            books: []
+        }
+    },
+    created(){
+        this.ref.onSnapshot((querySnapshot)=>{
+            querySnapshot.forEach((doc)=>{
+                this.books = doc.data();
+            });
+        });
     }
 }
 </script>
