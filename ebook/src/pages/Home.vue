@@ -45,7 +45,10 @@
                 </div>
                 
                 <div class="three-books">
-                    <Book/>
+                    <div v-for="book in books" v-bind:key="book.id" >
+                        <Book :book="book" />
+                    </div>
+                    
                 </div>
                 
                 <div class="new-arrival">
@@ -131,7 +134,7 @@ export default {
     created(){
         this.ref.onSnapshot((querySnapshot)=>{
             querySnapshot.forEach((doc)=>{
-                this.books = doc.data();
+                this.books.push(doc.data());    
             });
         });
     }

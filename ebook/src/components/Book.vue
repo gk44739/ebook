@@ -1,14 +1,14 @@
 <template>
     <div class="book">
-        <img src="Images/test" alt="Photo">
+        <img src="../assets/book2.png" alt="Photo">
         <div class="name-price">
             <div class="name-div">
                 <div class="name">
-                    Title
+                    {{book.titulli}}
                 </div>
                 <div class="rating">
                     <i>Autori:</i>   
-                    Autori
+                    {{book.autori}}
                 </div>
             </div>
             <div class="name-div">
@@ -16,9 +16,18 @@
                     <a href="book.php?book=">Buy now</a>
                 </p>
                 <p class="price">
-                    Price
+                    {{book.cmimi}}
                 </p>
             </div>
         </div>
     </div>
 </template>
+
+<script>
+export default{
+    name: 'Book',
+    props:{
+        book: Object
+    }
+}
+</script>
