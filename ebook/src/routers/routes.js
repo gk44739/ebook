@@ -4,6 +4,7 @@ import About from "../pages/About";
 import Contact from "../pages/Contact";
 import NotFound from "../pages/NotFound";
 import libriAdmin from "../pages/libriAdmin";
+import AboutAdmin from "../pages/AboutAdmin";
 
 
 export const routes=[
@@ -13,4 +14,5 @@ export const routes=[
     {path:"/Contact",component:Contact},
     {path:"*",component:NotFound},
     {path:"/libriAdmin",component:libriAdmin},
+    {path:"/AboutAdmin",component:AboutAdmin}
 ]
