@@ -36,6 +36,8 @@ export default{
         flex-direction: row;
         margin: 0 auto;
         height: auto;
+        margin-top: 50px;
+        margin-left: 50px;
     }
   
     .right-side{
@@ -46,5 +48,6 @@ export default{
         flex-direction: row;
         margin: 0 auto;
         height: auto;
+        
     }
 </style>
