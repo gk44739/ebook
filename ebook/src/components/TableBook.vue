@@ -10,6 +10,11 @@
                 <th colspan="2">Action</th>
             </tr>   
             <tr>
+                <td>asd</td>
+                <td>asd</td>
+                <td>asd</td>
+                <td>asd</td>
+                <td>asd</td>
                 <td>
                     <a >Edit</a>
                     <a >Delete</a>
@@ -21,17 +26,19 @@
 
 <style scoped>
     .tabela-forma{
-        width: 50%;
+        width: 70%;
         background-color: white;
-        margin-left: 20px;
+        padding: 0 15px;
+        margin-top: 30px;
+        overflow: auto;
+        height: 450px;
     }
 
     .tabelaUser{
-    border-collapse: collapse;
-    width: 100%;
-    font-size: 13px;
-    text-align: left;
-
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 13px;
+        text-align: left;
     }
 
      th{
@@ -59,11 +66,5 @@
 
     tr:nth-child(even) {
         background-color: #f2f2f2;
-    }
-
-    .tabela-forma{
-        overflow: auto;
-        height: 450px;
-        margin-top: 10%;
     }
 </style>
