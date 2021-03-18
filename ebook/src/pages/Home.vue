@@ -127,7 +127,7 @@ export default {
     },
     data(){
         return{
-            ref:db.firestore().collection('book'),
+            ref:db.collection('book'),
             books: []
         }
     },
