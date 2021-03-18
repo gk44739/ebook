@@ -65,13 +65,18 @@ footer {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    flex-wrap: wrap;
 }
 .footer-content{
     margin: 40px 20px;
-    width: 15%;
+    width: 330px;
     height: auto;
     text-align: center;
     font-size: 12px;
+}
+.footer-content h3{
+    text-align: center;
+    margin-bottom: 20px;
 }
 footer .footer-content:nth-child(4){
     width: auto;
@@ -80,13 +85,11 @@ footer .footer-content:nth-child(4){
     padding-bottom: 10px;
 }
 .footer-content img{
-    width: 100%;
+    width: 200px;
 }
 .list {
-    margin: 0 auto;
-    width: 50%;
+    text-align: center;
     color: #a7a8a8;
-    text-align: left;
 }
 .insta-pic{
     display: flex;

@@ -114,7 +114,7 @@
 </template>
 
 <script>
-import firebase from "../../firebase"
+import {db} from "../../firebase"
 import Book from "../components/Book"
 import OfferBook from "../components/OfferBook"
 import LatestBook from "../components/LatestBook"
@@ -127,7 +127,7 @@ export default {
     },
     data(){
         return{
-            ref:firebase.firestore().collection('book'),
+            ref:db.firestore().collection('book'),
             books: []
         }
     },
