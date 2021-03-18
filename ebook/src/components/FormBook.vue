@@ -62,14 +62,14 @@ export default {
 
 
 <style scoped>
-   .libri-forma{
-        width: 50%;
+    .libri-forma{
+        width: 30%;
+        padding: 0 15px;
+        margin-top: 30px;
     }
     form{
-        margin-top: 20%;
-        margin-left: 15%;
+        width: 100%;
     }
-
     .login-form label {
         color: gray;
         font-weight: bold;
@@ -88,13 +88,14 @@ export default {
         border: none;
         outline: none;
         border-bottom: 1.5px solid lightgray;
-        width: 80%;
+        width: 100%;
         padding: 5px 0;
         font-size: 17px;
     }
-
+    .login-form:first-child{
+        margin-top: 0px;
+    }
     .butonat-div{
-        width: 80%;
         display: flex;
         flex-direction: row;
         justify-content: center;
