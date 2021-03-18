@@ -25,16 +25,15 @@ export default {
 .main{
     display: flex;
     flex-direction: row;
+    margin-bottom: 0px;
 }
-
 .right-side{
-    height: 100vh;
+    height:calc(100vh - 433px);
     width: 100%;
     background-color: white;
     display: flex;
     flex-direction: row;
 }
-
 .combobox{
     margin-top: 20px;
 }
