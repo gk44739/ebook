@@ -30,21 +30,18 @@ export default {
 </script>
 <style scoped>
 .tabela-forma{
-    width: 50%;
-    background-color: white;
-    margin-left: 20px;
-}
-.tabelaUser{
-    border-collapse: collapse;
-    width: 80%;
-    font-size: 13px;
-    text-align: left;
-    
-}
-.tabela-forma{
+    width: 70%;
     overflow: auto;
     height: 450px;
-    margin-top: 10%;
+    margin-top: 30px;
+    padding: 0 15px;
+}
+
+.tabelaUser{
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+    text-align: left;
 }
 
 th{

@@ -28,7 +28,6 @@ export default {
     margin-bottom: 0px;
 }
 .right-side{
-    height:calc(100vh - 433px);
     width: 100%;
     background-color: white;
     display: flex;
