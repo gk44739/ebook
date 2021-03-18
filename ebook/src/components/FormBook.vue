@@ -1,41 +1,65 @@
 <template>
-    <form >
+    <form @submit.prevent>
         <div class="login-form">
             <label >Titulli</label><br>
-            <input type="text" name="titulli" id="titulliInput" >
-            <input type="hidden" name="idHidden" id="" value = "<?php echo $id; ?>">
+            <input type="text" v-model="book.titulli" >
         </div>
         <div class="login-form">
             <label>Cmimi</label><br>
-            <input type="text" name="cmimi" id="cmimiInput" >
+            <input type="number" v-model="book.cmimi" id="cmimiInput" >
         </div>
         <div class="login-form">
             <label>Photo</label><br>
-            <input type="text" name="photo" id="photoInput" >
+            <input type="text" v-model="book.foto" id="photoInput" >
         </div>
         <div class="login-form">
             <label>Autori</label><br>
-            <input type="text" name="autori" id="autoriInput" >
+            <input type="text" v-model="book.autori" id="autoriInput" >
         </div>
         <div class="login-form">
             <label>Data</label><br>
-            <input type="date" name="data" id="dataInput" >
+            <input type="date" v-model="book.data" id="dataInput" >
         </div>
         <div class="butonat-div">                       
-                        <button type="submit" name="ndryshoButton">
-                            Ndrysho
-                        </button>
-                
-                        <button name="createLiber">
-                            Ruaj
-                        </button>
-                    
+            <!-- <button type="submit" name="ndryshoButton">
+                Ndrysho
+            </button> -->
+
+            <button @click="submit()">
+                Ruaj
+            </button>
+                        
             <button name="anuloButton">
                 Anulo
             </button>
         </div>
     </form>
 </template>
+<script>
+
+import {db} from "../../firebase"
+export default {
+    name: "FormBook",
+    data(){
+        return{
+            book:{
+                autori: null,
+                cmimi: null,
+                data: null,
+                foto: null,
+                titulli: null
+            }
+            
+        }
+    },
+    methods:{
+        submit(){
+            db.collection("book").add(this.book);
+        }
+    }
+}
+</script>
+
 
 <style scoped>
    .libri-forma{
