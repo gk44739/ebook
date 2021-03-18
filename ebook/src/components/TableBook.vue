@@ -2,27 +2,47 @@
     <div class="tabela-forma">
         <table id="tabelaLibri" class="tabelaUser">
             <tr>
-                <th>Title</th>
-                <th>Price</th>
-                <th>Photo</th>
-                <th>Author</th>
-                <th>Date</th>
+                <th>Titulli</th>
+                <th>Cmimi</th>
+                <th>Foto</th>
+                <th>Autori</th>
+                <th>Data</th>
                 <th colspan="2">Action</th>
             </tr>   
-            <tr>
-                <td>asd</td>
-                <td>asd</td>
-                <td>asd</td>
-                <td>asd</td>
-                <td>asd</td>
+            <tr v-for="book in books" v-bind:key="book.id">
+                <td>{{book.titulli}}</td>
+                <td>{{book.cmimi}}</td>
+                <td>{{book.foto}}</td>
+                <td>{{book.autori}}</td>
+                <td>{{book.data}}</td>
                 <td>
-                    <a >Edit</a>
-                    <a >Delete</a>
+                    <a>Edit</a>
+                    <a>Delete</a>
                 </td>
             </tr>   
         </table>
     </div>
 </template>
+<script>
+import {db} from "../../firebase"
+export default {
+    name: "TableBook",
+    data(){
+        return {
+            ref:db.collection('book'),
+            books: []
+        }
+    },
+    created(){
+        this.ref.onSnapshot((querySnapshot)=>{
+            querySnapshot.forEach((doc)=>{
+                this.books.push(doc.data());    
+            });
+        });
+    }
+}
+</script>
+
 
 <style scoped>
     .tabela-forma{
