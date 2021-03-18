@@ -1,7 +1,6 @@
 import firebase from "firebase";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const settings = {timestampsInSnapshots: true};
 
 const firebaseConfig = {
     apiKey: "AIzaSyAnvkeRTHdwjx9JuvDnEX1b7DeFZO1ku_c",
@@ -14,7 +13,8 @@ const firebaseConfig = {
     measurementId: "G-74ECFM5//NNC"
 };
   // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-firebase.firestore().settings(settings); 
+const app = firebase.initializeApp(firebaseConfig);
 
-export default firebase;
+const db = firebase.firestore(); 
+
+export  {app,db};
