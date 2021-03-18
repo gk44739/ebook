@@ -43,11 +43,12 @@ export default {
 </script>
 <style scoped>
 .libri-forma{
-    width: 50%;
+    width: 30%;
+    margin-top: 30px;
+    padding: 0 15px;
 }
 form{
-    margin-top: 20%;
-    margin-left: 15%;
+    text-align: left;
 }
 .login-form label {
     color: gray;
@@ -59,27 +60,26 @@ form{
     width: 100%;
     margin-top: 30px;
 }
-
+.login-form:first-child{
+    margin-top: 0px;
+}
 .login-form input {
     background: none;
     border: none;
     outline: none;
     border-bottom: 1.5px solid lightgray;
-    width: 80%;
+    width: 100%;
     padding: 5px 0;
     font-size: 17px;
 }
-
 .login-form input:focus{
     border-bottom:1.5px solid #e94c37;
 }
 .butonat-div{
-    width: 80%;
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
-
 .butonat-div button{
     margin: 20px;
     border: none;
