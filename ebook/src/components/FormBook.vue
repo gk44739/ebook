@@ -52,7 +52,6 @@ export default {
             }else{
                 ref.add(this.BookToEdit);
             }
-            this.clear();
         },
         clear(){
             window.location.href="/libriAdmin";

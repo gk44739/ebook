@@ -17,7 +17,7 @@
                 <td>{{book.data().data}}</td>
                 <td>
                     <a @click="EditBook(book.data(),book.id)">Edit</a>
-                    <a>Delete</a>
+                    <a @click="DeleteBook(book.id)">Delete</a>
                 </td>
             </tr>   
         </table>
@@ -44,6 +44,9 @@ export default {
     methods: {
         EditBook(book,bookId){
             this.$emit('EditBook', book,bookId);
+        },
+        DeleteBook(bookId){
+            this.ref.doc(bookId).delete();
         }
     }
 }
