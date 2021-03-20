@@ -1,6 +1,11 @@
 <template>
+<div>
+    <div class="containerFull">
+        <div class="rowSlider">
+            <HomeSlider/>
+        </div>
+    </div>
     <div class="main">
-
         <div class="main-content">
             <div class="left-content">
                 <div class="title">
@@ -111,16 +116,19 @@
             </div>
         </div>
     </div>
+</div>
 </template>
 
 <script>
-import {db} from "../../firebase"
-import Book from "../components/Book"
-import OfferBook from "../components/OfferBook"
-import LatestBook from "../components/LatestBook"
+import {db} from "../../firebase";
+import HomeSlider from "../components/HomeSlider";
+import Book from "../components/Book";
+import OfferBook from "../components/OfferBook";
+import LatestBook from "../components/LatestBook";
 export default {
     name: "Home",
     components:{
+        HomeSlider,
         Book,
         OfferBook,
         LatestBook
@@ -483,5 +491,13 @@ export default {
 }
 .name-div button:hover{
     background-color: #444444;
+}
+.containerFull{
+    max-width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+.rowSlider{
+    margin: 0 -15px;
 }
 </style>
