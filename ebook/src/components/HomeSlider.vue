@@ -2,9 +2,9 @@
     <div class="homeSlickSlider">
         <VueSlickCarousel :arrows="true" :dots="true">
             <div><img :src="require(`../assets/funnylaptop.jpg`)" alt=""></div>
-            <div><img :src="require(`../assets/foto1.png`)" alt=""></div>
-            <div><img :src="require(`../assets/foto2.png`)" alt=""></div>
-            <div><img :src="require(`../assets/foto3.png`)" alt=""></div>
+            <div><img :src="require(`../assets/books-1.jpg`)" alt=""></div>
+            <div><img :src="require(`../assets/books-2.jpg`)" alt=""></div>
+            <div><img :src="require(`../assets/books-3.jpg`)" alt=""></div>
         </VueSlickCarousel>
     </div>
 </template>
