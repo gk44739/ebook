@@ -2,10 +2,10 @@
      <div class="main">
         <div class="right-side"> 
             <!-- tablebook -->
-            <TableBook/>
+            <TableBook @EditBook="EditBook" />
             <div class="libri-forma">
                 <!-- formbook -->
-                <FormBook/>
+                <FormBook :BookToEdit="BookToEdit" :bookId="bookId"/>
             </div>
         </div>
     </div>
@@ -20,6 +20,18 @@ export default{
     components:{
         TableBook,
         FormBook
+    },
+    data() {
+        return {
+            BookToEdit: {},
+            bookId: ""
+        }
+    },
+    methods:{
+        EditBook(book,bookId){
+            this.BookToEdit = book;
+            this.bookId = bookId;
+        }
     }
 }
 </script>

@@ -10,13 +10,13 @@
                 <th colspan="2">Action</th>
             </tr>   
             <tr v-for="book in books" v-bind:key="book.id">
-                <td>{{book.titulli}}</td>
-                <td>{{book.cmimi}}</td>
-                <td>{{book.foto}}</td>
-                <td>{{book.autori}}</td>
-                <td>{{book.data}}</td>
+                <td>{{book.data().titulli}}</td>
+                <td>{{book.data().cmimi}}</td>
+                <td>{{book.data().foto}}</td>
+                <td>{{book.data().autori}}</td>
+                <td>{{book.data().data}}</td>
                 <td>
-                    <a>Edit</a>
+                    <a @click="EditBook(book.data(),book.id)">Edit</a>
                     <a>Delete</a>
                 </td>
             </tr>   
@@ -31,14 +31,20 @@ export default {
         return {
             ref:db.collection('book'),
             books: []
+            
         }
     },
     created(){
         this.ref.onSnapshot((querySnapshot)=>{
             querySnapshot.forEach((doc)=>{
-                this.books.push(doc.data());    
+                this.books.push(doc);
             });
         });
+    },
+    methods: {
+        EditBook(book,bookId){
+            this.$emit('EditBook', book,bookId);
+        }
     }
 }
 </script>

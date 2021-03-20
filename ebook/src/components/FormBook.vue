@@ -2,23 +2,23 @@
     <form @submit.prevent>
         <div class="login-form">
             <label >Titulli</label><br>
-            <input type="text" v-model="book.titulli" >
+            <input type="text" v-model="BookToEdit.titulli" >
         </div>
         <div class="login-form">
             <label>Cmimi</label><br>
-            <input type="number" v-model="book.cmimi" id="cmimiInput" >
+            <input type="number" v-model="BookToEdit.cmimi" id="cmimiInput" >
         </div>
         <div class="login-form">
             <label>Photo</label><br>
-            <input type="text" v-model="book.foto" id="photoInput" >
+            <input type="text" v-model="BookToEdit.foto" id="photoInput" >
         </div>
         <div class="login-form">
             <label>Autori</label><br>
-            <input type="text" v-model="book.autori" id="autoriInput" >
+            <input type="text" v-model="BookToEdit.autori" id="autoriInput" >
         </div>
         <div class="login-form">
             <label>Data</label><br>
-            <input type="date" v-model="book.data" id="dataInput" >
+            <input type="date" v-model="BookToEdit.data" id="dataInput" >
         </div>
         <div class="butonat-div">                       
             <!-- <button type="submit" name="ndryshoButton">
@@ -29,7 +29,7 @@
                 Ruaj
             </button>
                         
-            <button name="anuloButton">
+            <button @click="clear()" name="anuloButton">
                 Anulo
             </button>
         </div>
@@ -40,21 +40,22 @@
 import {db} from "../../firebase"
 export default {
     name: "FormBook",
-    data(){
-        return{
-            book:{
-                autori: null,
-                cmimi: null,
-                data: null,
-                foto: null,
-                titulli: null
-            }
-            
-        }
+    props:{
+        BookToEdit: Object,
+        bookId: String
     },
     methods:{
         submit(){
-            db.collection("book").add(this.book);
+            let ref = db.collection("book");
+            if(this.bookId != ""){
+                ref.doc(this.bookId).set(this.BookToEdit);
+            }else{
+                ref.add(this.BookToEdit);
+            }
+            this.clear();
+        },
+        clear(){
+            window.location.href="/libriAdmin";
         }
     }
 }
