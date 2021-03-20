@@ -1,10 +1,10 @@
 <template>
     <div class="homeSlickSlider">
         <VueSlickCarousel :arrows="true" :dots="true">
-            <div>1</div>
-            <div>2</div>
-            <div>3</div>
-            <div>4</div>
+            <div><img :src="require(`../assets/funnylaptop.jpg`)" alt=""></div>
+            <div><img :src="require(`../assets/foto1.png`)" alt=""></div>
+            <div><img :src="require(`../assets/foto2.png`)" alt=""></div>
+            <div><img :src="require(`../assets/foto3.png`)" alt=""></div>
         </VueSlickCarousel>
     </div>
 </template>
@@ -38,5 +38,10 @@ export default {
 }
 .homeSlickSlider .slick-dots li button::before{
     color: #ffffff;
+}
+.homeSlickSlider div img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 </style>
