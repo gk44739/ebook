@@ -53,7 +53,8 @@ export default {
   color: #2c3e50;
 }
 .main {
-    max-width: 1440px;
-    margin: 0 auto;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 15px;
 }
 </style>

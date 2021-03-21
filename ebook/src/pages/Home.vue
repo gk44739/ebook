@@ -458,7 +458,9 @@ export default {
         flex-direction: column;  
         width: 100%;      
     }
-
+    .right-content{
+        width: 100%;
+    }
     .main-content{
         flex-direction: column;
     }
