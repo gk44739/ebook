@@ -36,6 +36,7 @@ export default {
     },
     created(){
         this.ref.onSnapshot((querySnapshot)=>{
+            this.books = [];
             querySnapshot.forEach((doc)=>{
                 this.books.push(doc);
             });
