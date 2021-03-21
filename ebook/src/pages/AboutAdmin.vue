@@ -1,8 +1,8 @@
 <template>
 <div class="main">
     <div class="right-side">
-            <AboutAdminTable />
-            <AboutAdminBookInput />        
+        <AboutAdminTable @EditEmployee="EditEmployee" />
+        <AboutAdminBookInput :Employee="Employee" :EmployeeId="EmployeeId" />        
     </div>
 </div>
 </template>
@@ -16,7 +16,17 @@ export default {
     components:{
         AboutAdminTable,
         AboutAdminBookInput
-    },
+    },data(){
+        return {
+            Employee: {},
+            EmployeeId: ""
+        }
+    },methods:{
+        EditEmployee(Employee,EmployeeId){
+            this.Employee = Employee;
+            this.EmployeeId = EmployeeId;
+        }
+    }
 }
 
 </script>

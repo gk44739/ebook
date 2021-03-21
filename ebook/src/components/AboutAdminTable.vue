@@ -9,22 +9,39 @@
                 <th>Foto</th>
                 <th colspan="2">Action</th>
             </tr>   
-                <tr><td>". $row["emri"] ."</td><td>". $row["mbiemri"]  ."</td><td>". $row["profesioni"] ."</td><td>". $row["foto"] ."</td>";
-                
+            <tr v-for="Employee in Employees" v-bind:key="Employee.id">
+                <td>{{Employee.data().Emri}}</td>
+                <td>{{Employee.data().Mbiemri}}</td>
+                <td>{{Employee.data().Profesioni}}</td>
+                <td>{{Employee.data().Foto}}</td>
                 <td>
-                    <a href="aboutAdmin.php?edit=">Edit</a>
-                    <a href="../Controller/AdminAbout.php?delete">Delete</a>
+                    <a @click="EditEmployee(Employee.data(),Employee.id)">Edit</a>
+                    <a>Delete</a>
                 </td>
-                </tr>
+            </tr>
         </table>
     </div>
 </template>
 <script>
-
+import {db} from "../../firebase"
 export default {
     name:"AboutAdminTable",
-    props:{
-
+    data(){
+        return {
+            ref: db.collection("Employee"),
+            Employees: []
+        }
+    },created(){
+        this.ref.onSnapshot((querySnapshot)=>{
+            this.Employees = [];
+            querySnapshot.forEach((doc)=>{
+                this.Employees.push(doc);
+            });
+        });
+    },methods:{
+        EditEmployee(Employee,EmployeeId){
+            this.$emit('EditEmployee', Employee,EmployeeId);
+        }
     }
 }
 </script>

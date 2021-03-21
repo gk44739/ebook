@@ -1,43 +1,49 @@
 <template>
     <div class="libri-forma">
-        <form action="../Controller/AdminAbout.php" method="POST" onsubmit="return aboutAdmin()">
-                <div class="login-form">
-                    <label for="">Emri</label><br>
-                    <input type="text" name="Emri" id="emriAboutInput" value = "<?php echo $emri; ?>">
-                    <input type="hidden" name="idHidden" id="" value = "<?php echo $id; ?>">
-                </div>
-                <div class="login-form">
-                    <label for="">Mbiemri</label><br>
-                    <input type="text" name="mbiemri" id="mbiemriAboutInput" value = "<?php echo $mbiemri; ?>">
-                </div>
-                <div class="login-form">
-                    <label for="">Profesioni</label><br>
-                    <input type="text" name="profesioni" id="profesioniAboutInput" value ="<?php echo $profesioni; ?>">
-                </div>
-                <div class="login-form">
-                    <label for="">Foto</label><br>
-                    <input type="text" name="foto" id="fotoAboutInput" value ="<?php echo $foto; ?>">
-                </div>
-                <div class="butonat-div">
-                        <button type="submit" name="ndryshoButton">
-                            Ndrysho
-                        </button>
-                        <button name="createWorker">
-                            Ruaj
-                        </button>
-                    <button name="anuloButton">
-                        Anulo
-                    </button>
-                </div>
+        <form @submit.prevent>
+            <div class="login-form">
+                <label for="">Emri</label><br>
+                <input type="text" v-model="Employee.Emri" >
+            </div>
+            <div class="login-form">
+                <label for="">Mbiemri</label><br>
+                <input type="text" v-model="Employee.Mbiemri">
+            </div>
+            <div class="login-form">
+                <label for="">Profesioni</label><br>
+                <input type="text" v-model="Employee.Profesioni">
+            </div>
+            <div class="login-form">
+                <label for="">Foto</label><br>
+                <input type="text" v-model="Employee.Foto">
+            </div>
+            <div class="butonat-div">
+                <button @click="Submit()" name="createWorker">
+                    Ruaj
+                </button>
+                <button name="anuloButton">
+                    Anulo
+                </button>
+            </div>
         </form>
     </div>
 </template>
 <script>
-
+import {db} from "../../firebase"
 export default {
     name:"AboutAdminBookInput",
     props:{
-
+        Employee: Object,
+        EmployeeId: String
+    },methods:{
+        Submit(){
+            let ref = db.collection("Employee");
+            if(this.EmployeeId != ""){
+                ref.doc(this.EmployeeId).set(this.Employee);
+            }else{
+                ref.add(this.Employee);
+            }
+        }
     }
 }
 </script>
