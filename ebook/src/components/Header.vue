@@ -1,7 +1,7 @@
 <template>
     <div>
         <HeaderUpper :image="image"/>
-        <Navigation :profile="profile" />
+        <Navigation :profile="profile" :loggedIn="loggedIn"/>
     </div>
 </template>
 
@@ -12,7 +12,8 @@ export default{
     name:"Header",
     props:{
         image: String,
-        profile: String
+        profile: String,
+        loggedIn: Boolean
     },
     components:{
         HeaderUpper,

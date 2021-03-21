@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <Header :image="image" :profile="profile" />
-    <router-view />
+    <Header :image="image" :profile="profile" :loggedIn="loggedIn" />
+    <router-view @logged="logged" />
     <Footer :footerImg="footerLogo"/>
   </div>
 </template>
@@ -23,12 +23,17 @@ export default {
       return {
         image: logo,
         profile: profile,
-        footerLogo:footerLogo
+        footerLogo:footerLogo,
+        loggedIn: false
       }
   },
   components: {
     Header,
     Footer
+  },methods:{
+    logged(value){
+      this.loggedIn = value;
+    }
   }
   
 }

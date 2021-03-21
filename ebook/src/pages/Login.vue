@@ -41,13 +41,10 @@ export default {
     methods:{
         login(){
             app.auth().signInWithEmailAndPassword(this.email, this.password).then(() => {
-
-                this.$router.push('/Home');
-
+                this.$emit("logged",true);
+                this.$router.replace({path:'/Home'});
             }).catch(error => {
-                
                 alert(error.message);
-                
             });
                
         }

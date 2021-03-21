@@ -1,36 +1,55 @@
 <template>
     <div class="header-size">
         <div class="main">
-                <div class="header">
+            <div class="header">
+                <div class="header-list">
+                    <ul style="padding: 15px 0px 15px 0px;">
+                        <li><router-link to="/Home" exact>HOME</router-link></li>
+                        <li><router-link to="/About" exact>ABOUT US</router-link></li>
+                        <li><router-link to="/Contact" exact>CONTACT</router-link></li>
+                        <li><router-link to="/AllBooks" exact>BOOKS</router-link></li>
+                        <li v-if="loggedIn"><router-link to="/libriAdmin" exact>LIBRI ADMIN</router-link></li>
+                        <li v-if="loggedIn"><router-link to="/AboutAdmin" exact>ABOUT ADMIN</router-link></li>
+                    </ul>
+                </div>
 
-                    <div class="header-list">
-                        <ul>
-                            <li><router-link to="/Home" exact>HOME</router-link></li>
-                            <li><router-link to="/About" exact>ABOUT US</router-link></li>
-                            <li><router-link to="/AllBooks" exact>BOOKS</router-link></li>
-                            <li><router-link to="/Contact" exact>CONTACT</router-link></li>
-                            <li><router-link to="/libriAdmin" exact>LIBRI ADMIN</router-link></li>
-                            <li><router-link to="/AboutAdmin" exact>ABOUT ADMIN</router-link></li>
-                        </ul>
+                <div class="header-phone-div">
+                    <div class="header-phone-div-content">
+                        <button v-if="loggedIn" @click="logout()">
+                            <!-- <img :src="profile" style="width:40px; height:40px;" alt=""> -->
+                            Logout
+                        </button>
+                        <button v-else @click="login()">
+                            Login
+                        </button>
                     </div>
-
-                    <div class="header-phone-div">
-                        <div class="header-phone-div-content">
-                            <div>
-                                <img :src="profile" style="width:40px; height:40px;" alt="">
-                            </div>
-                        </div>
-                    </div>
+                </div>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import {app} from "../../firebase"
+
 export default {
     name:"Navigation",
     props:{
-        profile: String
+        profile: String,
+        loggedIn: Boolean
+    },methods:{
+        logout(){
+            app.auth().signOut().then(() => {
+                this.loggedIn = false;
+                this.$router.replace({path:'/'});
+            })
+            .catch(error => {
+                alert(error.message);
+            });
+        },
+        login(){
+            this.$router.replace({path:'/'});
+        }
     }
 }
 </script>
@@ -42,7 +61,6 @@ export default {
 
 .header-size {
     background-color: #444444;
-    height: 50px;
     width: 100%;
 }
 
