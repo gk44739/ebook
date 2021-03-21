@@ -15,7 +15,9 @@
                 <div class="title">
                     NEW ARRIVALS
                 </div>
-                <LatestBook/>
+                <div class="arrival-div" v-for="book in arrivalBooks" v-bind:key="book.title">
+                    <LatestBook :book="book"/>
+                </div>
                 <div class="title">
                     TESTIMONIALS
                 </div>
@@ -119,7 +121,8 @@ export default {
             ref:db.collection('book'),
             books: [],
             featuredBooks:[],
-            OfferBook: ""
+            OfferBook: "",
+            arrivalBooks: []
         }
     },
     created(){
@@ -147,6 +150,13 @@ export default {
                 }else{
                     this.OfferBook = doc.data();
                 }
+            });
+        });
+
+        this.ref.orderBy("data","desc").limit(4).onSnapshot((querySnapshot)=>{
+            this.arrivalBooks=[];
+            querySnapshot.forEach((doc)=>{
+                this.arrivalBooks.push(doc.data());    
             });
         });
     }
