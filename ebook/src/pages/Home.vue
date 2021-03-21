@@ -430,4 +430,17 @@ export default {
 .rowSlider{
     margin: 0 -15px;
 }
+
+
+@media only screen and (max-width: 767px){
+    .three-books{
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .three-books .book{
+        width: 100%;
+    }
+}
+
 </style>
