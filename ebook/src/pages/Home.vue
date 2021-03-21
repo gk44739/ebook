@@ -50,7 +50,7 @@
                 </div>
                 
                 <div class="three-books">
-                    <div v-for="book in books" v-bind:key="book.id" >
+                    <div v-for="book in books" v-bind:key="book.title" >
                         <Book :book="book" />
                     </div>
                     
@@ -76,28 +76,9 @@
                     </div>
                 </div>
                 <div class="four-books">
-                    <div class="book">
-                        <img src="Images/test" alt="Photo">
-                        <div class="name-price">
-                            <div class="name-div">
-                                <div class="name">
-                                    Title 
-                                </div>
-                                <div class="rating">
-                                    <!-- <i>Autori:</i>    -->
-                                    Autori
-                                </div>
-                            </div>
-                            <div class="name-div">
-                                <p>
-                                    <a href="book.php">Buy now</a>
-                                </p>
-                                <p class="price">
-                                    Price
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    <div v-for="featuredBook in featuredBooks" v-bind:key="featuredBook.id">
+                        <Book :book="featuredBook"/>
+                    </div>  
                 </div>
             </div>
 
@@ -136,7 +117,8 @@ export default {
     data(){
         return{
             ref:db.collection('book'),
-            books: []
+            books: [],
+            featuredBooks:[]
         }
     },
     created(){
@@ -144,6 +126,13 @@ export default {
             this.books=[];
             querySnapshot.forEach((doc)=>{
                 this.books.push(doc.data());    
+            });
+        });
+
+        this.ref.orderBy("data","desc").limit(8).onSnapshot((querySnapshot)=>{
+            this.featuredBooks=[];
+            querySnapshot.forEach((doc)=>{
+                this.featuredBooks.push(doc.data());    
             });
         });
     }
