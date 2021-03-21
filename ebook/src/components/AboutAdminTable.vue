@@ -16,7 +16,7 @@
                 <td>{{Employee.data().Foto}}</td>
                 <td>
                     <a @click="EditEmployee(Employee.data(),Employee.id)">Edit</a>
-                    <a>Delete</a>
+                    <a @click="DeleteEmployee(Employee.id)">Delete</a>
                 </td>
             </tr>
         </table>
@@ -41,6 +41,9 @@ export default {
     },methods:{
         EditEmployee(Employee,EmployeeId){
             this.$emit('EditEmployee', Employee,EmployeeId);
+        },
+        DeleteEmployee(EmployeeId){
+            this.ref.doc(EmployeeId).delete();
         }
     }
 }
