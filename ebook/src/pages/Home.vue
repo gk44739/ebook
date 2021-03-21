@@ -140,7 +140,7 @@ export default {
         }
     },
     created(){
-        this.ref.onSnapshot((querySnapshot)=>{
+        this.ref.limit(6).onSnapshot((querySnapshot)=>{
             this.books=[];
             querySnapshot.forEach((doc)=>{
                 this.books.push(doc.data());    
