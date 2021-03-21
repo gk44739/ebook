@@ -1,16 +1,16 @@
 <template>
     <div class="first-offer">
         <div class="offer-pic">
-            <img src="../assets/book12.png" alt="Photo">
+            <img :src="require(`../assets/${OfferBook.foto}`)" alt="Photo">
         </div>
         <div class="name-price">
             <div class="name-div">
                 <div class="name">
-                    Name
+                    {{OfferBook.titulli}}
                 </div>
                 <div class="rating">
                     <i>Autori:</i>
-                    Autori
+                    {{OfferBook.autori}}
                 </div>
             </div>
             <div class="name-div">
@@ -18,7 +18,7 @@
                     <s>$40.48</s>
                 </p>
                 <p class="price">
-                    Price
+                    {{OfferBook.cmimi}}
                 </p>
             </div>
             <div class="name-div">
@@ -29,3 +29,13 @@
         </div>
     </div>
 </template>
+
+<script>
+
+export default {
+    name: "OfferBook",
+    props:{
+        OfferBook: Object
+    }
+}
+</script>

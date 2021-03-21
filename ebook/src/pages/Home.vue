@@ -11,7 +11,7 @@
                 <div class="title">
                     HOT DEALS
                 </div>
-                <OfferBook/>
+                <OfferBook v-if="OfferBook !=''" :OfferBook="OfferBook"/>
                 <div class="title">
                     NEW ARRIVALS
                 </div>
@@ -118,7 +118,8 @@ export default {
         return{
             ref:db.collection('book'),
             books: [],
-            featuredBooks:[]
+            featuredBooks:[],
+            OfferBook: ""
         }
     },
     created(){
@@ -133,6 +134,19 @@ export default {
             this.featuredBooks=[];
             querySnapshot.forEach((doc)=>{
                 this.featuredBooks.push(doc.data());    
+            });
+        });
+        
+        this.ref.onSnapshot((querySnapshot)=>{
+            this.OfferBook = "";
+            querySnapshot.forEach((doc)=>{
+                if(this.OfferBook != ""){
+                    if(doc.data().cmimi < this.OfferBook.cmimi){
+                        this.OfferBook = doc.data();
+                    }
+                }else{
+                    this.OfferBook = doc.data();
+                }
             });
         });
     }
