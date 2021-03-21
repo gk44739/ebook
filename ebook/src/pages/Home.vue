@@ -462,6 +462,13 @@ export default {
     .main-content{
         flex-direction: column;
     }
-}
 
+    .four-books{
+        flex-direction: column;
+    }
+
+    .four-books .book{
+        width: 100%;
+    }
+}
 </style>

@@ -105,8 +105,7 @@ a {
 }
 
 .header-phone-div {
-    width: 18%;
-    background-color: #e94c37;
+    width: 20%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -115,6 +114,15 @@ a {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+}
+
+.header-phone-div-content button{
+    width: 100%;
+    padding: 20px 0px;
+    background-color: #e94c37;
+    border: 1px solid #e94c37;
+    color: #ffffff;
+    font-weight: bold;
 }
 
 .number{
