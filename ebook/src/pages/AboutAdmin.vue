@@ -2,7 +2,7 @@
 <div class="main">
     <div class="right-side">
         <AboutAdminTable @EditEmployee="EditEmployee" />
-        <AboutAdminBookInput :Employee="Employee" :EmployeeId="EmployeeId" />        
+        <AboutAdminBookInput :Employee="Employee" :EmployeeId="EmployeeId" @anulo="anulo" />        
     </div>
 </div>
 </template>
@@ -25,6 +25,9 @@ export default {
         EditEmployee(Employee,EmployeeId){
             this.Employee = Employee;
             this.EmployeeId = EmployeeId;
+        },anulo(){
+            this.Employee = {},
+            this.EmployeeId = ""
         }
     }
 }

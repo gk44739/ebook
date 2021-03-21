@@ -21,7 +21,7 @@
                 <button @click="Submit()" name="createWorker">
                     Ruaj
                 </button>
-                <button name="anuloButton">
+                <button @click="Anulo()" name="anuloButton">
                     Anulo
                 </button>
             </div>
@@ -43,6 +43,10 @@ export default {
             }else{
                 ref.add(this.Employee);
             }
+
+            this.Anulo();
+        },Anulo(){
+            this.$emit('anulo');
         }
     }
 }
