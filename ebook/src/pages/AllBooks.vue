@@ -33,7 +33,7 @@ export default{
         }
     },
     created(){
-        this.ref.limit(6).onSnapshot((querySnapshot)=>{
+        this.ref.onSnapshot((querySnapshot)=>{
             this.books=[];
             querySnapshot.forEach((doc)=>{
                 this.books.push(doc.data());    
@@ -43,11 +43,7 @@ export default{
 }
 </script>
 <style scoped>
-.main {
-    width: 80%;
-    margin: 0 auto;
-    height: auto;
-}
+
 .main-content {
     width: 100%;
     display: flex;
@@ -94,9 +90,10 @@ export default{
 .book{
     width: 22%;
     margin-bottom: 30px;
-}
-.book {
-    border: 1px solid #f2f2f2;
     margin-bottom: 15px;
+}
+.name-price {
+    width: 100%;
+    margin: 0 auto;
 }
 </style>

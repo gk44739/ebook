@@ -87,14 +87,14 @@
         </div>
          <div class="photo-album">
             <div class="foto-1">
-                <img src="../assets/foto1.png" alt="">
+                <img :src="require(`../assets/library-1.jpg`)" alt="">
             </div>
             <div class="foto-2">
                 <div class="foto1">
-                    <img src="../assets/foto2.png" alt="">
+                    <img :src="require(`../assets/library-2.jpg`)" alt="">
                 </div>
                 <div class="foto2">
-                    <img src="../assets/foto3.png" alt="">
+                    <img :src="require(`../assets/library-3.jpg`)" alt="">
                 </div>
             </div>
         </div>
@@ -380,6 +380,10 @@ export default {
     width: 50%;
     margin-right: 16px;
 }
+.foto-1 img{
+    width: 100%;
+    height: 400px;
+}
 .foto-2{
     width: 50%;
     margin-left: 16px;
@@ -388,6 +392,14 @@ export default {
     justify-content: space-between;
 }
 
+.foto1 img{
+    width: 100%;
+    height: 200px;
+}
+.foto2 img{
+    width: 100%;
+    height: 200px;
+}
 .name-div button{
     
     background-color: #e94c37;
