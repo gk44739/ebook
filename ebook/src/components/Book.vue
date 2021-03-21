@@ -1,24 +1,22 @@
 <template>
-    <div class="book">
+    <div class="name-price">
         <img :src="require(`../assets/${book.foto}`)" alt="Photo">
-        <div class="name-price">
-            <div class="name-div">
-                <div class="name">
-                    {{book.titulli}}
-                </div>
-                <div class="rating">
-                    <i>Autori:</i>   
-                    {{book.autori}}
-                </div>
+        <div class="name-div">
+            <div class="name">
+                {{book.titulli}}
             </div>
-            <div class="name-div">
-                <p>
-                    <a href="book.php?book=">Buy now</a>
-                </p>
-                <p class="price">
-                    {{book.cmimi}}
-                </p>
+            <div class="rating">
+                <i>Autori:</i>   
+                {{book.autori}}
             </div>
+        </div>
+        <div class="name-div">
+            <p>
+                <a href="book.php?book=">Buy now</a>
+            </p>
+            <p class="price">
+                {{book.cmimi}}
+            </p>
         </div>
     </div>
 </template>

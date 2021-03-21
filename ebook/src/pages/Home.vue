@@ -52,7 +52,7 @@
                 </div>
                 
                 <div class="three-books">
-                    <div v-for="book in books" v-bind:key="book.title" >
+                    <div class="book" v-for="book in books" v-bind:key="book.title" >
                         <Book :book="book" />
                     </div>
                     
@@ -78,7 +78,7 @@
                     </div>
                 </div>
                 <div class="four-books">
-                    <div v-for="featuredBook in featuredBooks" v-bind:key="featuredBook.id">
+                    <div class="book" v-for="featuredBook in featuredBooks" v-bind:key="featuredBook.id">
                         <Book :book="featuredBook"/>
                     </div>  
                 </div>
