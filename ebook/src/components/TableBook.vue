@@ -11,7 +11,7 @@
             </tr>   
             <tr v-for="book in books" v-bind:key="book.id">
                 <td>{{book.data().titulli}}</td>
-                <td>{{book.data().cmimi}}</td>
+                <td>{{book.data().cmimi}} €</td>
                 <td>{{book.data().foto}}</td>
                 <td>{{book.data().autori}}</td>
                 <td>{{book.data().data}}</td>

@@ -5,7 +5,7 @@
             <TableBook @EditBook="EditBook" />
             <div class="libri-forma">
                 <!-- formbook -->
-                <FormBook :BookToEdit="BookToEdit" :bookId="bookId"/>
+                <FormBook @clear="clear" :BookToEdit="BookToEdit" :bookId="bookId"/>
             </div>
         </div>
     </div>
@@ -31,7 +31,12 @@ export default{
         EditBook(book,bookId){
             this.BookToEdit = book;
             this.bookId = bookId;
+        },
+        clear(){
+            this.BookToEdit = {},
+            this.bookId = ""
         }
+
     }
 }
 </script>

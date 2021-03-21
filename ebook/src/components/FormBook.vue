@@ -6,7 +6,7 @@
         </div>
         <div class="login-form">
             <label>Cmimi</label><br>
-            <input type="number" v-model="BookToEdit.cmimi" id="cmimiInput" >
+            <input type="number" step="any" v-model="BookToEdit.cmimi" id="cmimiInput" >
         </div>
         <div class="login-form">
             <label>Photo</label><br>
@@ -52,9 +52,10 @@ export default {
             }else{
                 ref.add(this.BookToEdit);
             }
+           this. clear();
         },
         clear(){
-            window.location.href="/libriAdmin";
+            this.$emit('clear');
         }
     }
 }
