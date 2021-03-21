@@ -441,6 +441,15 @@ export default {
     .three-books .book{
         width: 100%;
     }
+
+    .left-content{
+        flex-direction: column;  
+        width: 100%;      
+    }
+
+    .main-content{
+        flex-direction: column;
+    }
 }
 
 </style>
