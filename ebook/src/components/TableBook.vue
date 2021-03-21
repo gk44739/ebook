@@ -57,11 +57,11 @@ export default {
 <style scoped>
     .tabela-forma{
         width: 70%;
-        background-color: white;
-        padding: 0 15px;
-        margin-top: 30px;
         overflow: auto;
         height: 450px;
+        margin-top: 30px;
+        padding: 0 15px;
+        
     }
 
     .tabelaUser{

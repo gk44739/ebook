@@ -1,7 +1,7 @@
 <template>
     <div class="homeSlickSlider">
         <VueSlickCarousel :arrows="true" :dots="true">
-            <div><img :src="require(`../assets/funnylaptop.jpg`)" alt=""></div>
+            <div><img :src="require(`../assets/book-4.jpg`)" alt=""></div>
             <div><img :src="require(`../assets/books-1.jpg`)" alt=""></div>
             <div><img :src="require(`../assets/books-2.jpg`)" alt=""></div>
             <div><img :src="require(`../assets/books-3.jpg`)" alt=""></div>

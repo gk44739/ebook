@@ -42,29 +42,26 @@ export default{
 </script>
 
 <style scoped>
-    *{
-        margin: 0;
-        padding: 0;
-    }
-
-
     .main{
-        display: flex;
-        flex-direction: row;
-        margin: 0 auto;
-        height: auto;
-        margin-top: 50px;
-        margin-left: 50px;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 0px;
     }
-  
     .right-side{
-        height: 100vh;
-        width: 80%;
-        background-color: white;
-        display: flex;
-        flex-direction: row;
-        margin: 0 auto;
-        height: auto;
-        
+    width: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
     }
+    .combobox{
+    margin-top: 20px;
+}
+
+.combobox h4{
+    padding-top: 5px;
+}
+
+.combobox select {
+    margin-top: 10px;
+}
 </style>
