@@ -22,11 +22,6 @@ export default {
 </script>
 
 <style scoped>
-.main{
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 0px;
-}
 .right-side{
     width: 100%;
     background-color: white;

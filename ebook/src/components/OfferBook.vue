@@ -15,10 +15,10 @@
             </div>
             <div class="name-div">
                 <p>
-                    <s>$40.48</s>
+                    <s>40.48 €</s>
                 </p>
                 <p class="price">
-                    {{OfferBook.cmimi}}
+                    {{OfferBook.cmimi}} €
                 </p>
             </div>
             <div class="name-div">

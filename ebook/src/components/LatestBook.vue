@@ -12,7 +12,7 @@
                 {{book.autori}}
             </div>
             <div class="price">
-                {{book.cmimi}}
+                {{book.cmimi}} €
             </div>
         </div>
     </div>

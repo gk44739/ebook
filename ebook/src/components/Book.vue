@@ -11,11 +11,9 @@
             </div>
         </div>
         <div class="name-div">
-            <p>
-                <a href="book.php?book=">Buy now</a>
-            </p>
+            <router-link to="/BookDetails">Show Details</router-link>
             <p class="price">
-                {{book.cmimi}}
+                {{book.cmimi}} €
             </p>
         </div>
     </div>
@@ -29,3 +27,7 @@ export default{
     }
 }
 </script>
+
+<style scoped>
+
+</style>

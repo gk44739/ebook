@@ -20,13 +20,7 @@ export default{
     }
 }
 </script>
-<style >
-.main {
-    width: 80%;
-    margin: 0 auto;
-    height: auto;
-    margin-bottom: 30px;
-}
+<style>
 .row{
     width: 100%;
 }

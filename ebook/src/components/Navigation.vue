@@ -1,25 +1,27 @@
 <template>
     <div class="header-size">
-            <div class="header">
+        <div class="main">
+                <div class="header">
 
-                <div class="header-list">
-                    <ul>
-                        <li><router-link to="/Home" exact>HOME</router-link></li>
-                        <li><router-link to="/About" exact>ABOUT US</router-link></li>
-                        <li><router-link to="/Contact" exact>CONTACT</router-link></li>
-                        <li><router-link to="/libriAdmin" exact>LIBRI ADMIN</router-link></li>
-                        <li><router-link to="/AboutAdmin" exact>ABOUT ADMIN</router-link></li>
-                    </ul>
-                </div>
+                    <div class="header-list">
+                        <ul>
+                            <li><router-link to="/Home" exact>HOME</router-link></li>
+                            <li><router-link to="/About" exact>ABOUT US</router-link></li>
+                            <li><router-link to="/Contact" exact>CONTACT</router-link></li>
+                            <li><router-link to="/libriAdmin" exact>LIBRI ADMIN</router-link></li>
+                            <li><router-link to="/AboutAdmin" exact>ABOUT ADMIN</router-link></li>
+                        </ul>
+                    </div>
 
-                <div class="header-phone-div">
-                    <div class="header-phone-div-content">
-                        <div>
-                            <img :src="profile" style="width:40px; height:40px;" alt="">
+                    <div class="header-phone-div">
+                        <div class="header-phone-div-content">
+                            <div>
+                                <img :src="profile" style="width:40px; height:40px;" alt="">
+                            </div>
                         </div>
                     </div>
-                </div>
-         </div>
+            </div>
+        </div>
     </div>
 </template>
 

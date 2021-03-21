@@ -165,99 +165,6 @@ export default {
 
 
 <style>
-.main {
-    width: 80%;
-    margin: 0 auto;
-    height: auto;
-}
-
-.sliderFull{
-    width: 100%;
-    height: auto;
-    position: relative;
-}
-
-.sliderFull img{
-    width: 100%;
-    height: 100%;
-}
-.show-slide{
-    display: block;
-    animation: fade_in_show 0.2s
-}
-.remove-slide{
-    display: none;
-}
-
-@keyframes fade_in_show {
-    0% {
-         opacity: 0;
-    }
-    50%{
-        opacity: 0.5;
-    }
-    100% {
-         opacity: 1;
-    }
-}
-
-.button-slideshow{
-    width: 80px;
-    height: 80px;
-    cursor: pointer;
-}
-
-.button-slideshow:hover{
-    width: 100px;
-}
-
-.button-slideshow img{
-    width: 100%;
-    height: 100%;
-}
-.left-content-slidershow{
-    display: flex;
-    flex-direction: row;
-    height: 80px;
-}
-
-.slidershow-text{
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 10%;
-    color: white;
-}
-
-.slidershow-text p{
-    padding-top: 10px;
-    font-style: italic;
-}
-
-.slidershow-content{
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-between;
-}
-
-.learn {
-    height: 45px;
-    width: 150px;
-    background-color: #e94c37;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-top: 20px;
-    font-size: 15px;
-}
-.learn:hover{ 
-    background-color: #444444;
-}
 .main-content {
     width: 100%;
     display: flex;
@@ -307,8 +214,9 @@ export default {
 }
 
 .name-price {
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
+    border: 1px solid #f2f2f2;
 }
 .name-div:nth-of-type(2) {
     border-bottom: 1px solid #f2f2f2;
@@ -317,7 +225,7 @@ export default {
 
 .name-div {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     margin: 10px;
     font-size: 12px;
@@ -326,6 +234,7 @@ export default {
 .price {
     font-weight: bold;
     color: red;
+    margin-top: 10px;
 }
 .offer-time {
     padding: 10px 0;
@@ -340,6 +249,11 @@ export default {
     flex-wrap: wrap;
     justify-content: space-between;
 }
+.three-books .book{
+    width: 33.33%;
+    padding: 20px;
+}
+
 .four-books{
     margin-top: 40px;
     display: flex;
@@ -355,11 +269,6 @@ export default {
     width: 100%;
     height: auto;
     border-bottom: 1px solid #f2f2f2;
-}
-
-.book {
-    border: 1px solid #f2f2f2;
-    margin-bottom: 15px;
 }
 .right-content .name-div {
     border: none;
@@ -411,7 +320,7 @@ export default {
     padding-bottom: 13px;
 }
 .arrival-img img {
-    width: 100px;
+    width: 80px;
     height: auto;
     border: 1px solid #f2f2f2;
 }
@@ -480,7 +389,7 @@ export default {
 }
 
 .name-div button{
-    border: none;
+    
     background-color: #e94c37;
     color: white;
     padding: 5px;
@@ -490,13 +399,20 @@ export default {
 }
 
 .name-div a{
-    border: none;
+    text-decoration: none;
+    border: 1px solid #e94c37;
     background-color: #e94c37;
     color: white;
     padding: 5px;
     outline: none;
     cursor: pointer;
     font-size: 12px;
+    transition: .3s ease-in-out;
+}
+.name-div a:hover{
+    color: #e94c37;
+    background-color: #ffffff;
+    border: 1px solid #e94c37;
 }
 
 .four-books .name-div button{

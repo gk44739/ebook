@@ -1,24 +1,26 @@
 <template>
     <div class="upper" id="upp">
-        <div id="up">
-            <div class="logo">
-                <router-link to="/">
-                    <img :src="image" alt="">
-                </router-link>
-            </div>
-            <div class="cart">
-                <div class="search">
-                    <div class="all">
-                        <div class="all-cat">
-                            CATEGORIES
-                        </div>
-                        <div class="search-input">
-                            <input  type="text" placeholder="Search for your book" id="searchBook">
-                        </div>
-                        <div class="search-icon">
-                            <!-- <button id="searchButton" :onclick="search()" type="submit">
-                                <i class="fa fa-search"></i>
-                            </button> -->
+        <div class="main">
+            <div id="up">
+                <div class="logo">
+                    <router-link to="/">
+                        <img :src="image" alt="">
+                    </router-link>
+                </div>
+                <div class="cart">
+                    <div class="search">
+                        <div class="all">
+                            <div class="all-cat">
+                                CATEGORIES
+                            </div>
+                            <div class="search-input">
+                                <input  type="text" placeholder="Search for your book" id="searchBook">
+                            </div>
+                            <div class="search-icon">
+                                <!-- <button id="searchButton" :onclick="search()" type="submit">
+                                    <i class="fa fa-search"></i>
+                                </button> -->
+                            </div>
                         </div>
                     </div>
                 </div>
