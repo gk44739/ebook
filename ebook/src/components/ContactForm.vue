@@ -24,14 +24,14 @@
             </div>
             <div class="rightside">
                 <h1>SEND US A MESSAGE</h1>
-                <form action="../Controller/contact_report.php" method="POST" onsubmit="return kontakto()">
+                <form @submit.prevent>
                     <div class="rightside-content">
-                        <input class="form-control" id="inputEmail" name="inputEmail" type="text" placeholder="Your Email">
-                        <input class="subject" name="inputSubject" type="text" placeholder="Subject">
+                        <input class="form-control" v-model="Contact.Email" placeholder="Your Email">
+                        <input class="subject" v-model="Contact.Subject" placeholder="Subject">
                         
-                        <textarea class="message-content" name="inputMessage" placeholder="Your Message" rows="5" style="margin-top: 0px; margin-bottom: 0px; height: 131px;"></textarea>
+                        <textarea class="message-content" v-model="Contact.Message" placeholder="Your Message" rows="5" style="margin-top: 0px; margin-bottom: 0px; height: 131px;"></textarea>
 
-                        <button name="submitContact">CONTACT US</button>
+                        <button @click="Submit()" name="submitContact">CONTACT US</button>
                     </div>
                     
                 </form>
@@ -40,8 +40,28 @@
 </template>
 
 <script>
+import {db} from "../../firebase"
 export default{
-    name:"ContactForm"
+    name:"ContactForm",
+    data(){
+        return{
+            Contact: {
+                Email: "",
+                Subject: "",
+                Message: ""
+            }
+        }
+    },methods:{
+        Submit(){
+            let ref = db.collection("Contact");
+            ref.add(this.Contact);
+            this.clear();
+        },clear(){
+            this.Contact.Email = "";
+            this.Contact.Subject = "";
+            this.Contact.Message = "";
+        }
+    }
 }
 </script>
 
