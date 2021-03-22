@@ -6,6 +6,7 @@ import NotFound from "../pages/NotFound";
 import libriAdmin from "../pages/libriAdmin";
 import AboutAdmin from "../pages/AboutAdmin";
 import AllBooks from "../pages/AllBooks";
+import BookDetails from "../pages/BookDetails";
 
 export const routes=[
     {path:"/",component:Home},
@@ -15,5 +16,7 @@ export const routes=[
     {path:"*",component:NotFound},
     {path:"/libriAdmin",component:libriAdmin},
     {path:"/AboutAdmin",component:AboutAdmin},
-    {path:"/AllBooks",component:AllBooks}
+    {path:"/AllBooks",component:AllBooks},
+    {path:"/BookDetails/:titulli",component:BookDetails}
+
 ]

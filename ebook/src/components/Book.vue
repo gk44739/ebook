@@ -11,7 +11,8 @@
             </div>
         </div>
         <div class="name-div">
-            <router-link to="/BookDetails">Show Details</router-link>
+            <!-- <router-link to="/BookDetails/">Show Details</router-link> -->
+            <router-link v-bind:to="'/BookDetails/'+book.titulli">Show Details</router-link>
             <p class="price">
                 {{book.cmimi}} €
             </p>
