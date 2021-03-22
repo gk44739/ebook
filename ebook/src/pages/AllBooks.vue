@@ -1,16 +1,18 @@
 <template>
-    <div class="main">
-        <div class="main-content">
-            <div class="right-content" style="width: 100%;">
-                <div class="title" style="margin-top: 0px;">
-                    <div>
-                        ALL BOOKS
+    <div class="allBooks">
+        <div class="main">
+            <div class="main-content">
+                <div class="right-content" style="width: 100%;">
+                    <div class="title" style="margin-top: 0px;">
+                        <div>
+                            ALL BOOKS
+                        </div>
                     </div>
-                </div>
-                
-                <div class="three-books">
-                    <div class="book" v-for="book in books" v-bind:key="book.title">
-                        <Book :book="book" />
+                    
+                    <div class="three-books">
+                        <div class="book" v-for="book in books" v-bind:key="book.title">
+                            <Book :book="book" />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -44,6 +46,9 @@ export default{
 </script>
 <style scoped>
 
+.allBooks{
+    padding: 100px 0;
+}
 .main-content {
     width: 100%;
     display: flex;
@@ -95,5 +100,15 @@ export default{
 .name-price {
     width: 100%;
     margin: 0 auto;
+}
+@media only screen and (max-width: 767px){
+    .allBooks .book{
+        width:50%;
+    }
+}
+@media only screen and (max-width: 500px){
+    .allBooks .book{
+        width:100%;
+    }
 }
 </style>
