@@ -8,7 +8,6 @@
           </div>
           <div class="loginDescription">
             <h1>Administrative Login</h1>
-            <p>Hello !</p>
           </div>
           <img src="../assets/loginpic.png" alt="" />
         </div>
@@ -24,9 +23,6 @@
               <div class="login-form">
                 <label for="">Password</label><br />
                 <input type="password" v-model="password" id="passwordInput" />
-              </div>
-              <div class="login-form">
-                <a href="forget_password.php">Forgot password?</a>
               </div>
               <div class="butonat-div">
                 <button @click="login()" id="loginButton">Login</button>
@@ -82,7 +78,7 @@ export default {
   align-items: center;
 }
 .main {
-  width: 100%;
+  max-width: 85%;
   padding: 0 15px;
 }
 .loginForm{
@@ -90,7 +86,7 @@ export default {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: 750px;
+  height: 80vh;
 }
 .login-img-div {
   position: relative;
@@ -151,10 +147,10 @@ export default {
 }
 .loginDescription{
   position: absolute;
-  top: 30%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%,-50%);
-  width: 500px;
+  max-width: 500px;
   padding: 20px 10px;
   background-color: #e94c37;
   color: #ffffff;
@@ -234,6 +230,10 @@ export default {
     border-top-right-radius: unset;
     border-bottom-right-radius: 40px;
     border-bottom-left-radius: 40px;
+  }
+
+   .loginDescription h1{
+    font-size: 25px;
   }
 }
 </style>
