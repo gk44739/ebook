@@ -1,28 +1,38 @@
 <template>
   <div class="backgroundNgjyra">
     <div class="main">
-      <div class="login-img-div">
-        <img src="../assets/loginpic.png" alt="" />
-      </div>
-      <div class="content">
-        <div class="login-content" id="login">
-          <p>Login</p>
-          <form @submit.prevent>
-            <div class="login-form">
-              <label for="">E-mail</label><br />
-              <input type="text" v-model="email" id="emailLoginInput" />
-            </div>
-            <div class="login-form">
-              <label for="">Password</label><br />
-              <input type="password" v-model="password" id="passwordInput" />
-            </div>
-            <div class="login-form">
-              <a href="forget_password.php">Forgot password?</a>
-            </div>
-            <div class="butonat-div">
-              <button @click="login()" id="loginButton">Login</button>
-            </div>
-          </form>
+      <div class="loginForm">
+        <div class="login-img-div">
+          <div class="backToHome">
+            <router-link to="/" exact>Back Home</router-link>
+          </div>
+          <div class="loginDescription">
+            <h1>Administrative Login</h1>
+            <p>Hello !</p>
+          </div>
+          <img src="../assets/loginpic.png" alt="" />
+        </div>
+        <div class="content">
+          <div class="loginError" :class="[active ? 'active' : '']"><p>{{errormessage}}</p></div>
+          <div class="login-content" id="login">
+            <p>Login</p>
+            <form @submit.prevent>
+              <div class="login-form">
+                <label for="">E-mail</label><br />
+                <input type="text" v-model="email" id="emailLoginInput" />
+              </div>
+              <div class="login-form">
+                <label for="">Password</label><br />
+                <input type="password" v-model="password" id="passwordInput" />
+              </div>
+              <div class="login-form">
+                <a href="forget_password.php">Forgot password?</a>
+              </div>
+              <div class="butonat-div">
+                <button @click="login()" id="loginButton">Login</button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
@@ -35,16 +45,23 @@ export default {
     data(){
         return{
             email:"",
-            password:""
+            password:"",
+            errormessage:"",
+            active:false
         }
     },
     methods:{
         login(){
             app.auth().signInWithEmailAndPassword(this.email, this.password).then(() => {
-                this.$emit("logged",true);
-                this.$router.replace({path:'/Home'});
+                this.$emit("logged","true");
+                
+                this.$router.replace({path:'/'});
             }).catch(error => {
-                alert(error.message);
+              this.errormessage=error.message;
+              this.active=true;
+              setTimeout(()=>{
+                this.active=false;
+              },5000)
             });
                
         }
@@ -53,75 +70,97 @@ export default {
 </script>
 
 <style scoped>
+.backgroundNgjyra {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(#e94c37, #9198e5);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+}
 .main {
-  width: 50%;
-  height: auto;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  width: 100%;
+  padding: 0 15px;
+}
+.loginForm{
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 750px;
 }
-
 .login-img-div {
-  width: 50%;
   position: relative;
-}
-.signUpButton:nth-of-type(2) {
-  display: none;
-}
-.signUpButton {
-  position: absolute;
-  top: 80%;
-  left: 55%;
-  transform: translate(-50%, -50%);
-}
-.signUpButton button {
-  padding: 11px 30px;
-  border: none;
-  background-color: #e94c37;
-  outline: none;
-  color: white;
-  cursor: pointer;
-  border-radius: 50px;
+  width: 50%;
+  height: 100%;
 }
 
 .login-img-div img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
   border-top-left-radius: 40px;
   border-bottom-left-radius: 40px;
 }
 
 .content {
   width: 50%;
+  height: 100%;
   background-color: #f3f3f3;
   border-top-right-radius: 40px;
   border-bottom-right-radius: 40px;
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 15px;
 }
-
-.login-content {
-  width: 50%;
+.content .loginError{
+  visibility: hidden;
+  text-align: center;
+  opacity: 0;
+  background: #e94c37;
+  color: #ffffff;
+  border-radius: 20px;
+  transition: .3s ease-in-out;
+}
+.content .loginError p{
+  padding: 20px 40px;
+}
+.content .loginError.active{
+  visibility: visible;
+  opacity: 1;
+}
+.backToHome{
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  margin-left: 20px;
+  bottom: 20px;
+  right: 50%;
+  transform: translateX(50%);
 }
-.regist-content {
-  margin-left: 20px;
-  margin-top: 30px;
+.backToHome a{
+  color: #ffffff;
+  background: #e94c37;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  text-decoration: none;
 }
-
-.regist-content p {
-  font-size: 30px;
-  font-weight: bold;
-  font-family: "Segoe UI";
-  padding-bottom: 20px;
+.loginDescription{
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 500px;
+  padding: 20px 10px;
+  background-color: #e94c37;
+  color: #ffffff;
 }
-#signup {
-  display: none;
+.login-content {
+  width: 100%;
 }
 
 .login-content p {
@@ -147,7 +186,7 @@ export default {
   border: none;
   outline: none;
   border-bottom: 1.5px solid lightgray;
-  width: 80%;
+  width: 100%;
   padding: 5px 0;
   font-size: 17px;
 }
@@ -157,7 +196,6 @@ export default {
 }
 
 .butonat-div {
-  width: 80%;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -174,28 +212,28 @@ export default {
   cursor: pointer;
   border-radius: 50px;
 }
-* {
-  margin: 0;
-  padding: 0;
-}
-.backgroundNgjyra {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background: linear-gradient(#e94c37, #9198e5);
-}
+@media only screen and (max-width: 767px){
+  .loginForm{
+    flex-direction: column;
+    height: auto;
+  }
+  .login-img-div{
+    width: 100%;
+    height: 200px;
+  }
+  .login-img-div img{
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    border-bottom-left-radius:unset;
+  }
 
-.changePasswordDiv {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 50%;
-  padding: 100px 0;
-  padding-left: 100px;
-  border-radius: 50px;
-  background-color: white;
+  .content{
+    width: 100%;
+    padding: 0 50px;
+    text-align: center;
+    border-top-right-radius: unset;
+    border-bottom-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+  }
 }
 </style>

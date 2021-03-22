@@ -11,7 +11,7 @@
                     <div class="search">
                         <div class="all">
                             <div class="search-input">
-                                <input  type="text" placeholder="Search for your book" id="searchBook">
+                                <input  type="text" placeholder="Search Books" id="searchBook">
                             </div>
                             <div class="search-icon">
                                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -30,11 +30,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="hamburgerButton" @click="openNav()">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -45,17 +41,8 @@
 export default {
   name: 'HeaderUpper',
   props:{
-      image: String
-  },
-  methods:{
-      openNav(){
-        if(document.querySelector(".header").classList.contains("active")){
-            document.querySelector(".header").classList.remove("active");
-        }else{
-            document.querySelector(".header").classList.add("active");
-
-        }
-      }
+    image: String,
+    activeClass:Boolean
   },
   
 }
@@ -67,6 +54,7 @@ export default {
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
+    position: relative;
 }
 
 .logo {
@@ -113,6 +101,7 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 100%;
 }
 
 .search-input {
@@ -144,18 +133,7 @@ export default {
     cursor: pointer;
     transition: .2s ease-in-out;
 }
-.hamburgerButton span{
-    display: block;
-    width: 20px;
-    height: 3px;
-    background: #000;
-    margin: 5px 0;
-    border-radius: 3px;
-}
-.hamburgerButton{
-    display: none;
-    cursor: pointer;
-}
+
 .categories-content{
     display: flex;
     flex-direction: column;
@@ -169,7 +147,12 @@ export default {
 }
 @media only screen and (max-width: 767px){
     .logo{
-        width: 100%;
+        width: 50%;
+        padding: 20px 0;
+        text-align: left;
+    }
+    .logo img{
+        max-width: 180px;
     }
     .cart{
         width: 100%;

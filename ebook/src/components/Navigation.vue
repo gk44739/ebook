@@ -1,21 +1,21 @@
 <template>
-    <div class="header-size">
+    <div class="header-size" :class="[activeClass ? 'active' : '']">
         <div class="main">
-            <div class="header ">
+            <div class="header" >
                 <div class="header-list">
                     <ul style="padding: 15px 0px 15px 0px;">
-                        <li><router-link to="/Home" exact>HOME</router-link></li>
-                        <li><router-link to="/About" exact>ABOUT US</router-link></li>
-                        <li><router-link to="/Contact" exact>CONTACT</router-link></li>
-                        <li><router-link to="/AllBooks" exact>BOOKS</router-link></li>
-                        <li v-if="loggedIn"><router-link to="/libriAdmin" exact>LIBRI ADMIN</router-link></li>
-                        <li v-if="loggedIn"><router-link to="/AboutAdmin" exact>ABOUT ADMIN</router-link></li>
+                        <li @click="closeNavHandler()"><router-link to="/" exact>HOME</router-link></li>
+                        <li @click="closeNavHandler()"><router-link to="/About" exact>ABOUT US</router-link></li>
+                        <li @click="closeNavHandler()"><router-link to="/Contact" exact>CONTACT</router-link></li>
+                        <li @click="closeNavHandler()"><router-link to="/AllBooks" exact>BOOKS</router-link></li>
+                        <li v-if="loggedIn === 'true'" @click="closeNavHandler()"><router-link to="/libriAdmin" exact>LIBRI ADMIN</router-link></li>
+                        <li v-if="loggedIn === 'true'" @click="closeNavHandler()"><router-link to="/AboutAdmin" exact>ABOUT ADMIN</router-link></li>
                     </ul>
                 </div>
 
                 <div class="header-phone-div">
                     <div class="header-phone-div-content">
-                        <button v-if="loggedIn" @click="logout()">
+                        <button v-if="loggedIn === 'true'" @click="logout()" >
                             <!-- <img :src="profile" style="width:40px; height:40px;" alt=""> -->
                             Logout 
                             <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -110,12 +110,14 @@ export default {
     name:"Navigation",
     props:{
         profile: String,
-        loggedIn: Boolean,
-        active: String
-    },methods:{
+        loggedIn: String,
+        activeClass:Boolean
+    },
+    methods:{
         logout(){
             app.auth().signOut().then(() => {
-                this.loggedIn = false;
+                this.$emit('logout',"false");
+                this.$router.replace({path:'/Login'});
                 this.$router.replace({path:'/'});
             })
             .catch(error => {
@@ -123,16 +125,19 @@ export default {
             });
         },
         login(){
-            this.$router.replace({path:'/'});
+            this.$router.replace({path:'/Login'});
+        },
+        closeNavHandler(){
+            this.$emit('closeNavHandler')
         }
+    },created(){
+        console.log(this.loggedIn)
     }
 }
 </script>
 
 <style scoped>
-.router-link-exact-active{
-    color: #e94c37;
-}
+
 
 .header-size {
     background-color: #444444;
@@ -164,13 +169,14 @@ export default {
     font-size: 14px;
     padding: 0 20px;
 }
-
-.header-list ul li  a{
-    color: white;
+.header-list ul li a{
     text-decoration: none;
+    color: #ffffff;
 }
-
-.header-list ul li:hover {
+.router-link-exact-active.router-link-active{
+    color: #e94c37;
+}
+.header-list ul li a:hover {
     color: #e94c37;
 }
 
@@ -231,26 +237,37 @@ export default {
 }
 @media only screen and (max-width: 767px){
     .header{
+        flex-direction: column;
+    }
+    .header-size{
         width: 100%;
+        display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items: center;
         margin: 0;
         height: 0px;
+        opacity: 0;
         visibility: hidden;
         transition: .3s linear;
     }
-    .header.active{
+    .header-size.active{
+        opacity: 1;
         visibility: visible;
-        height:calc(100vh - 228px);
+        height:calc(100vh - 200px);
         padding: 20px;
     }
     .header-list{
         width: 100%;
     }
     .header-list ul{
+        width: 100%;
         flex-direction: column;
+        justify-content: center;
     }
     .header-list ul li{
+        width: 100%;
+        flex-direction: column;
         padding: 20px 0;
         font-size: 20px;
     }

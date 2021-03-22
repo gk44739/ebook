@@ -7,7 +7,7 @@
             <p>This page is not found in our website !</p>
         </div>
         <div class="pageNotFoundButtons">
-            <router-link to="/Home">Back to Home</router-link>
+            <router-link to="/">Back to Home</router-link>
         </div>
     </div>
 </template>
@@ -34,6 +34,7 @@ export default {
         height: 100vh;
         background: #e94c37;
         color: #ffff;
+        z-index: 9999;
     }
     .pageNotFound .pageNotFoundHeading{
         margin-bottom: 20px;

@@ -8,8 +8,8 @@ import AboutAdmin from "../pages/AboutAdmin";
 import AllBooks from "../pages/AllBooks";
 
 export const routes=[
-    {path:"/",component:Login},
-    {path:"/Home",component:Home},
+    {path:"/",component:Home},
+    {path:"/Login",component:Login},
     {path:"/About",component:About},
     {path:"/Contact",component:Contact},
     {path:"*",component:NotFound},

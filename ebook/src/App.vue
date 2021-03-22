@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header :image="image" :profile="profile" :loggedIn="loggedIn" />
+    <Header :image="image" :profile="profile" :loggedIn="loggedIn" @logout="logout"/>
     <router-view @logged="logged" />
     <Footer :footerImg="footerLogo"/>
   </div>
@@ -24,16 +24,24 @@ export default {
         image: logo,
         profile: profile,
         footerLogo:footerLogo,
-        loggedIn: false
+        loggedIn: "false",
       }
   },
   components: {
     Header,
     Footer
-  },methods:{
+  },
+  methods:{
     logged(value){
-      this.loggedIn = value;
+      window.localStorage.setItem('logedIn',value);
+      this.loggedIn=localStorage.getItem('logedIn',value);
+    },
+    logout(logout){
+      window.localStorage.setItem('logedIn',logout);
+      this.loggedIn=localStorage.getItem('logedIn');
     }
+  },created(){
+    this.loggedIn=localStorage.getItem("logedIn");
   }
   
 }
@@ -44,6 +52,9 @@ export default {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+body{
+  overflow-x: hidden;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

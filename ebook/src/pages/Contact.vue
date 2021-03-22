@@ -1,12 +1,14 @@
 <template>
-    <div class="main">
-        <div class="foto">
-            <img src="../assets/collection.png" alt="">
+    <div class="contactPage">
+        <div class="main">
+            <div class="foto">
+                <img src="../assets/collection.png" alt="">
+            </div>
+            <div class="title">
+                Contact Us
+            </div>
+            <ContactForm />
         </div>
-        <div class="title">
-            Contact Us
-        </div>
-        <ContactForm />
     </div>
 </template>
 
@@ -50,7 +52,6 @@ export default{
 .search-icon button{
     cursor: pointer;
 }
-/*--------------------- Albani ------------------------*/
 .title {
     margin: 20px 0;
     background-color: #f2f2f2;
@@ -71,7 +72,8 @@ export default{
     justify-content: space-evenly;
     box-shadow: 5px 5px 5px 5px #d3d3d3;
 }
-
-
+.contactPage{
+    padding: 50px 0 200px 0;
+}
 </style>
 
