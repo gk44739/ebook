@@ -53,4 +53,20 @@ export default {
     margin-top: 10px;
 }
 
+@media only screen and (max-width: 767px){
+    .right-side{
+        display:flex;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .libri-forma{
+        width: 100%;
+    }
+
+    .tabela-forma{
+        width: 100%;
+    }
+}
+
 </style>
