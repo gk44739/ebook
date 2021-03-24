@@ -1,4 +1,5 @@
 <template>
+<div style="display: flex;">
     <div class="tabela-forma">
         <table id="tabelaLibri" class="tabelaUser">
             <tr>
@@ -14,12 +15,17 @@
                 <td>{{contact.updatedDate}}</td>
                 <td>{{contact.Message}}</td>
                 <td>
-                    <a>View</a>
+                    <a @click="GetMessage(contact._id)">View</a>
                     <a>Delete</a>
                 </td>
             </tr>   
         </table>
     </div>
+    <div style="width: 200px;margin: 100px auto;">
+        <label>Message:</label>
+        <textarea cols="30" rows="10" v-model="Message"></textarea>
+    </div>
+</div>
 </template>
 <script>
 import axios from 'axios';
@@ -27,7 +33,8 @@ export default {
     name: "ContactTable",
     data(){
         return {
-            Contacts: []
+            Contacts: [],
+            Message: ""
         }
     },
     created(){
@@ -35,13 +42,21 @@ export default {
         .then(response =>{
             this.Contacts = response.data;
         });
+    },
+    methods: {
+        GetMessage(value){
+            axios.get(`http://localhost:4000/contacts/${value}`)
+            .then(response =>{
+                this.Message = response.data.Message;
+            });
+        }
     }
 }
 </script>
 
 <style scoped>
     .tabela-forma{
-        width: 100%;
+        width: 70%;
         overflow: auto;
         height: 450px;
         margin-top: 30px;
