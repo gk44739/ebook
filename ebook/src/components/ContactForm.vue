@@ -58,7 +58,7 @@ export default{
     },
     methods:{
         Submit(){
-            if(this.Contact.Email !== "" && this.Contact.Email !== null){
+            if(this.Contact.Email !== "" && this.Contact.Email !== null && this.Contact.Subject !== "" && this.Contact.Subject !== null && this.Contact.Message !== "" && this.Contact.Message !== null){
                 axios.post(`http://localhost:4000/contacts`,this.Contact)
                 .then(response =>{
                     if(response.status === 200){
@@ -74,12 +74,29 @@ export default{
                     }
                 });
             }else{
-                this.responseMessage="Please check your email !";
-                this.activeClass=true;
-                setTimeout(()=>{
-                    this.responseMessage="";
-                    this.activeClass=false;
-                },3000)
+                if(this.Contact.Email === "" || this.Contact.Email === null){
+                    this.responseMessage="Please check your email !";
+                    this.activeClass=true;
+                    setTimeout(()=>{
+                        this.responseMessage="";
+                        this.activeClass=false;
+                    },3000)
+                }else if(this.Contact.Subject === "" || this.Contact.Subject === null){
+                    this.responseMessage="Please check your subject !";
+                    this.activeClass=true;
+                    setTimeout(()=>{
+                        this.responseMessage="";
+                        this.activeClass=false;
+                    },3000)
+                }else{
+                    this.responseMessage="Please type something!";
+                    this.activeClass=true;
+                    setTimeout(()=>{
+                        this.responseMessage="";
+                        this.activeClass=false;
+                    },3000)
+                }
+               
             }
             
         },
