@@ -7,6 +7,7 @@ import libriAdmin from "../pages/libriAdmin";
 import AboutAdmin from "../pages/AboutAdmin";
 import AllBooks from "../pages/AllBooks";
 import BookDetails from "../pages/BookDetails";
+import ContactAdmin from "../pages/ContactAdmin";
 
 export const routes=[
     {path:"/",component:Home},
@@ -17,6 +18,6 @@ export const routes=[
     {path:"/libriAdmin",component:libriAdmin},
     {path:"/AboutAdmin",component:AboutAdmin},
     {path:"/AllBooks",component:AllBooks},
-    {path:"/BookDetails/:titulli",component:BookDetails}
-
+    {path:"/BookDetails/:titulli",component:BookDetails},
+    {path:"/ContactTable",component:ContactAdmin}
 ]

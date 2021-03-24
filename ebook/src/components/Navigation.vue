@@ -10,6 +10,7 @@
                         <li @click="closeNavHandler()"><router-link to="/AllBooks" exact>BOOKS</router-link></li>
                         <li v-if="loggedIn === 'true'" @click="closeNavHandler()"><router-link to="/libriAdmin" exact>LIBRI ADMIN</router-link></li>
                         <li v-if="loggedIn === 'true'" @click="closeNavHandler()"><router-link to="/AboutAdmin" exact>ABOUT ADMIN</router-link></li>
+                        <li v-if="loggedIn === 'true'" @click="closeNavHandler()"><router-link to="/ContactTable" exact>CONTACT TABLE</router-link></li>
                     </ul>
                 </div>
 
