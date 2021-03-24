@@ -8,11 +8,11 @@
                 <th>Message</th>
                 <th colspan="2">Action</th>
             </tr>   
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+            <tr v-for="contact in Contacts" v-bind:key="contact.id">
+                <td>{{contact.Email}}</td>
+                <td>{{contact.Subject}}</td>
+                <td>{{contact.updatedDate}}</td>
+                <td>{{contact.Message}}</td>
                 <td>
                     <a>View</a>
                     <a>Delete</a>
@@ -21,6 +21,23 @@
         </table>
     </div>
 </template>
+<script>
+import axios from 'axios';
+export default {
+    name: "ContactTable",
+    data(){
+        return {
+            Contacts: []
+        }
+    },
+    created(){
+        axios.get(`http://localhost:4000/contacts`)
+        .then(response =>{
+            this.Contacts = response.data;
+        });
+    }
+}
+</script>
 
 <style scoped>
     .tabela-forma{
