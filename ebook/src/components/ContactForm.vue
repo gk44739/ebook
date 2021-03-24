@@ -18,20 +18,21 @@
                         <i class="fa fa-envelope"></i>
                     </div>
                     <div class="paragraf">
-                        <p>asdasd@gmail.com</p>
+                        <p>infobookshop@gmail.com</p>
                     </div>
                 </div>
             </div>
             <div class="rightside">
                 <h1>SEND US A MESSAGE</h1>
-                <form @submit.prevent>
+                <div class="contactFromError" :class="[activeClass ? 'active' : succesResponse ? 'activeSucces' : '']">{{responseMessage}}</div>
+                <form @submit.prevent="Submit">
                     <div class="rightside-content">
                         <input class="form-control" v-model="Contact.Email" placeholder="Your Email">
                         <input class="subject" v-model="Contact.Subject" placeholder="Subject">
                         
                         <textarea class="message-content" v-model="Contact.Message" placeholder="Your Message" rows="5" style="margin-top: 0px; margin-bottom: 0px; height: 131px;"></textarea>
 
-                        <button @click="Submit()" name="submitContact">CONTACT US</button>
+                        <button name="submitContact">CONTACT US</button>
                     </div>
                     
                 </form>
@@ -40,26 +41,53 @@
 </template>
 
 <script>
-import {db} from "../../firebase"
+import axios from 'axios';
 export default{
     name:"ContactForm",
     data(){
         return{
             Contact: {
-                Email: "",
-                Subject: "",
-                Message: ""
-            }
+                Email:"",
+                Subject:"",
+                Message:"",
+            },
+            responseMessage:"",
+            activeClass:false,
+            succesResponse:false,
         }
-    },methods:{
+    },
+    methods:{
         Submit(){
-            let ref = db.collection("Contact");
-            ref.add(this.Contact);
-            this.clear();
-        },clear(){
+            if(this.Contact.Email !== "" && this.Contact.Email !== null){
+                axios.post(`http://localhost:4000/contacts`,this.Contact)
+                .then(response =>{
+                    if(response.status === 200){
+                        this.responseMessage="Thank you for the message !";
+                        this.succesResponse=true;
+                        this.clear();
+                        setTimeout(()=>{
+                            this.responseMessage="";
+                            this.succesResponse=false;
+                        },3000)
+                    }else{
+                        this.responseMessage="Your contact was not sent !"
+                    }
+                });
+            }else{
+                this.responseMessage="Please check your email !";
+                this.activeClass=true;
+                setTimeout(()=>{
+                    this.responseMessage="";
+                    this.activeClass=false;
+                },3000)
+            }
+            
+        },
+        clear(){
             this.Contact.Email = "";
             this.Contact.Subject = "";
             this.Contact.Message = "";
+           
         }
     }
 }
@@ -131,13 +159,27 @@ export default{
     line-height: 1.25;
 }
 
-.rightside-content{
-    display: flex;
-    flex-direction: column;
-}
 .rightside-content input,
 .rightside-content textarea{
     width: 100%;
+}
+.rightside .contactFromError{
+    color: #fff;
+    background: #e94c37;
+    border-radius: 20px;
+    visibility: hidden;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+}
+.rightside .contactFromError.activeSucces,
+.rightside .contactFromError.active{
+    padding: 10px 40px;
+    margin-bottom: 20px;
+    visibility: visible;
+    opacity: 1;
+}
+.rightside .contactFromError.activeSucces{
+    background-color: #82dd55;
 }
 .form-control{
     width: 100%;
@@ -168,15 +210,16 @@ export default{
 }
 
 .rightside button{
+    display: flex;
+    align-self: start;
     margin-top: 20px;
     color: white;
     background-color: #333333;
-    width: 20%;
     border: none;
-    height: 30px;
     margin-bottom: 20px;
     outline: none;
     cursor: pointer;
+    transition: all .3s linear;
     
 }
 
