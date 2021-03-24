@@ -75,13 +75,21 @@ export default{
 .contactPage{
     padding: 50px 0 200px 0;
 }
-
+.rightside button{
+    padding: 10px 30px;
+}
 @media only screen and (max-width: 767px){
     #content{
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+    #content .leftside,
+    #content .rightside{
+        width: 100%;
+    }
+    .rightside button{
     }
 }
 </style>

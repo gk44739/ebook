@@ -83,7 +83,9 @@ export default {
 .people img{
     border-radius: 50%;
 }
-
+.guy1{
+    margin-bottom: 50px;
+}
 @media only screen and (max-width: 1240px){
     
 }

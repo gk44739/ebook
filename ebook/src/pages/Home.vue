@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="homePage">
     <div class="containerFull">
         <div class="rowSlider">
             <HomeSlider/>
@@ -47,7 +47,7 @@
                         BEST SELLER
                     </div>
                     <div>
-                        <a href="AllBooks.php">SEE MORE</a>
+                         <router-link to="/AllBooks">SEE MORE</router-link>
                     </div>
                 </div>
                 
@@ -74,7 +74,7 @@
                     FEATURED PRODUCTS
                     </div>
                     <div>
-                        <a href="AllBooks.php">SEE MORE</a>
+                        <router-link to="/AllBooks">SEE MORE</router-link>
                     </div>
                 </div>
                 <div class="four-books">
@@ -165,6 +165,9 @@ export default {
 
 
 <style>
+.homePage{
+    margin-bottom:200px;
+}
 .main-content {
     width: 100%;
     display: flex;
@@ -382,7 +385,8 @@ export default {
 }
 .foto-1 img{
     width: 100%;
-    height: 400px;
+    height: 430px;
+    object-fit: cover;
 }
 .foto-2{
     width: 50%;
@@ -395,10 +399,12 @@ export default {
 .foto1 img{
     width: 100%;
     height: 200px;
+    object-fit: cover;
 }
 .foto2 img{
     width: 100%;
     height: 200px;
+    object-fit: cover;
 }
 .name-div button{
     

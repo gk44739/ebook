@@ -78,11 +78,18 @@ td a{
     text-decoration: none;
     background-color: #e2343f;
     font-size: 13px;
-    padding: 6px;
+    padding: 5px 10px;
+    margin: 0 5px;
     color: white;
     border-radius: 5px;
 }
-
+td a:hover{
+    cursor: pointer;
+}
+th:last-child,
+td:last-child{
+    text-align: center;
+}
 td a:nth-child(1){
     background-color: #41a4c5;
 }

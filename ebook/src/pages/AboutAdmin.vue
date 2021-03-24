@@ -62,10 +62,12 @@ export default {
 
     .libri-forma{
         width: 100%;
+        padding: 0;
     }
 
     .tabela-forma{
         width: 100%;
+        padding: 0;
     }
 }
 

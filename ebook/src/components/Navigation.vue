@@ -130,8 +130,6 @@ export default {
         closeNavHandler(){
             this.$emit('closeNavHandler')
         }
-    },created(){
-        console.log(this.loggedIn)
     }
 }
 </script>
@@ -204,6 +202,7 @@ export default {
     font-weight: bold;
     cursor: pointer;
     transition: .3s ease-in-out;
+    outline: none;
 }
 
 .header-phone-div-content button:hover{

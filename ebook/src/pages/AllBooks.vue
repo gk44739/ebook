@@ -90,10 +90,10 @@ export default{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start ;
 }
 .book{
-    width: 22%;
+    width: 25%;
     margin-bottom: 30px;
     margin-bottom: 15px;
 }

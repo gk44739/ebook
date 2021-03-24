@@ -12,7 +12,7 @@
           <img src="../assets/loginpic.png" alt="" />
         </div>
         <div class="content">
-          <div class="loginError" :class="[active ? 'active' : '']"><p>{{errormessage}}</p></div>
+          <div class="loginError" :class="[active ? 'active' : '']">{{errormessage}}</div>
           <div class="login-content" id="login">
             <p>Login</p>
             <form @submit.prevent>
@@ -53,8 +53,8 @@ export default {
                 
                 this.$router.replace({path:'/'});
             }).catch(error => {
-              this.errormessage=error.message;
               this.active=true;
+              this.errormessage=error.message;
               setTimeout(()=>{
                 this.active=false;
               },5000)
@@ -78,7 +78,7 @@ export default {
   align-items: center;
 }
 .main {
-  max-width: 85%;
+  width: 85%;
   padding: 0 15px;
 }
 .loginForm{
@@ -103,6 +103,7 @@ export default {
 }
 
 .content {
+  position: relative;
   width: 50%;
   height: 100%;
   background-color: #f3f3f3;
@@ -116,20 +117,24 @@ export default {
   padding: 0 15px;
 }
 .content .loginError{
-  visibility: hidden;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  display: flex;
+  align-items: center;
   text-align: center;
   opacity: 0;
   background: #e94c37;
   color: #ffffff;
   border-radius: 20px;
+  padding: 0px;
   transition: .3s ease-in-out;
-}
-.content .loginError p{
-  padding: 20px 40px;
 }
 .content .loginError.active{
   visibility: visible;
   opacity: 1;
+  padding: 20px 40px;
 }
 .backToHome{
   position: absolute;
