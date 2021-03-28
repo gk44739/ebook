@@ -1,6 +1,7 @@
 <template>
 <div style="display: flex;">
     <div class="tabela-forma">
+    <div class="tableResponse" :class="[succesActive ? 'succesResponse' : errorActive ? 'errorResponse' : '']">{{responseMessage}}</div>
         <table id="tabelaLibri" class="tabelaUser">
             <tr>
                 <th>Email</th>
@@ -16,7 +17,7 @@
                 <td>{{contact.Message}}</td>
                 <td>
                     <a @click="GetMessage(contact._id)">View</a>
-                    <a>Delete</a>
+                    <a @click="deleteMessage(contact._id)">Delete</a>
                 </td>
             </tr>   
         </table>
@@ -34,7 +35,10 @@ export default {
     data(){
         return {
             Contacts: [],
-            Message: ""
+            Message: "",
+            responseMessage:"",
+            succesActive:false,
+            errorActive:false
         }
     },
     created(){
@@ -43,11 +47,39 @@ export default {
             this.Contacts = response.data;
         });
     },
+    beforeUpdate(){
+        axios.get(`http://localhost:4000/contacts`)
+        .then(response =>{
+            this.Contacts = response.data;
+        });
+        
+    },
     methods: {
         GetMessage(value){
             axios.get(`http://localhost:4000/contacts/${value}`)
             .then(response =>{
                 this.Message = response.data.Message;
+            });
+        },
+        deleteMessage(id){
+            axios.delete(`http://localhost:4000/contacts/${id}`)
+            .then(response => {
+                if(response.status===200){
+                    this.responseMessage="Succes !";
+                    this.succesActive=true;
+                    setTimeout(() => {
+                        this.responseMessage="";
+                        this.succesActive=false;
+                    }, 3000);
+                }else{
+                    
+                    this.responseMessage="Error !";
+                    this.errorActive=true;
+                    setTimeout(() => {
+                        this.responseMessage="";
+                        this.errorActive=false;
+                    }, 3000);
+                }
             });
         }
     }
@@ -61,9 +93,30 @@ export default {
         height: 450px;
         margin-top: 30px;
         padding: 0 15px;
-        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
-
+    .tableResponse{
+        text-align: center;
+        transition: all .3s linear;
+        border-radius: 20px;
+        padding: 0px 40px;
+        color: #ffff;
+        height: 0px;
+    }
+    .tableResponse.succesResponse,
+    .tableResponse.errorResponse{
+        margin-bottom: 20px;
+        padding: 10px 40px;
+        height: auto;
+    }
+    .tableResponse.succesResponse{
+        background: #82dd55;
+    }
+    .tableResponse.errorResponse{
+        background: #e94c37;
+    }
     .tabelaUser{
         border-collapse: collapse;
         width: 100%;
@@ -103,5 +156,8 @@ export default {
 
     tr:nth-child(even) {
         background-color: #f2f2f2;
+    }
+    .tableResponse{
+        transition: all .3s ease-in-out;
     }
 </style>
