@@ -2,7 +2,8 @@
     <div class="contactPage">
         <div class="main">
             <div class="foto">
-                <img src="../assets/collection.png" alt="">
+                <img :src="require(`../assets/books-1.jpg`)" alt="">
+                <h1>Contact Us</h1>
             </div>
             <div class="title">
                 Contact Us
@@ -43,10 +44,20 @@ export default{
 .copyright a:hover{
     background-color: gray;
 }
-
+.foto{
+    position: relative;
+}
+.foto h1{
+    color: #FFFFFF;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
 .foto img{
     width: 100%;
-    height: 25%;
+    height: 250px;
+    object-fit: cover;
 }
 
 .search-icon button{
