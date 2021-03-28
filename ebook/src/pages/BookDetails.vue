@@ -244,4 +244,25 @@ input[type="number"]::-webkit-inner-spin-button {
     object-fit: contain;
 }
 
+@media only screen and (max-width: 767px){
+    .shop__product__inner{
+        display: flex;
+        flex-direction: column;
+        margin: 0px;
+        width: 100%;
+    }
+
+    .shop__product__photos{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+
+    .shop__product__img__nav{
+        width: 50%;
+        
+    }
+}
+
 </style>
