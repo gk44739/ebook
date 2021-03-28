@@ -6,9 +6,6 @@
           <div class="backToHome">
             <router-link to="/" exact>Back Home</router-link>
           </div>
-          <div class="loginDescription">
-            <h1>Administrative Login</h1>
-          </div>
           <img src="../assets/loginpic.png" alt="" />
         </div>
         <div class="content">
@@ -26,6 +23,7 @@
               </div>
               <div class="butonat-div">
                 <button @click="login()" id="loginButton">Login</button>
+                <router-link to="/SignUp">Sign Up</router-link>
               </div>
             </form>
           </div>
@@ -50,7 +48,6 @@ export default {
         login(){
             app.auth().signInWithEmailAndPassword(this.email, this.password).then(() => {
                 this.$emit("logged","true");
-                
                 this.$router.replace({path:'/'});
             }).catch(error => {
               this.active=true;
@@ -118,7 +115,7 @@ export default {
 }
 .content .loginError{
   position: absolute;
-  top: 30%;
+  top: 10%;
   left: 50%;
   transform: translate(-50%,-50%);
   display: flex;
@@ -130,6 +127,8 @@ export default {
   border-radius: 20px;
   padding: 0px;
   transition: .3s ease-in-out;
+  text-align: center;
+  width: 90%;
 }
 .content .loginError.active{
   visibility: visible;
@@ -202,6 +201,7 @@ export default {
   justify-content: center;
 }
 
+.butonat-div a,
 .butonat-div button {
   margin: 20px;
   border: none;
@@ -212,6 +212,9 @@ export default {
   color: white;
   cursor: pointer;
   border-radius: 50px;
+  text-decoration: none;
+  font-size: 12px;
+  text-align: center;
 }
 @media only screen and (max-width: 767px){
   .loginForm{
@@ -236,8 +239,10 @@ export default {
     border-bottom-right-radius: 40px;
     border-bottom-left-radius: 40px;
   }
-
-   .loginDescription h1{
+  .content .loginError{
+    top: -35%;
+  }
+  .loginDescription h1{
     font-size: 25px;
   }
 }
