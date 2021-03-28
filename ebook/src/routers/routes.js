@@ -1,4 +1,5 @@
 import Login from "../pages/Login";
+import SignUp from "../pages/SignUp";
 import Home from "../pages/Home";
 import About from "../pages/About";
 import Contact from "../pages/Contact";
@@ -12,6 +13,7 @@ import ContactAdmin from "../pages/ContactAdmin";
 export const routes=[
     {path:"/",component:Home},
     {path:"/Login",component:Login},
+    {path:"/SignUp",component:SignUp},
     {path:"/About",component:About},
     {path:"/Contact",component:Contact},
     {path:"*",component:NotFound},
