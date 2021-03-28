@@ -81,7 +81,7 @@ export default{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    box-shadow: 5px 5px 5px 5px #d3d3d3;
+    box-shadow: 0px 3px 28px 1px rgba(0,0,0,0.5);
 }
 .contactPage{
     padding: 50px 0 200px 0;
@@ -99,8 +99,6 @@ export default{
     #content .leftside,
     #content .rightside{
         width: 100%;
-    }
-    .rightside button{
     }
 }
 </style>
