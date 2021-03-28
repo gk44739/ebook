@@ -1,5 +1,5 @@
 <template>
-<div style="display: flex;">
+<div class="main-div" style="display: flex;">
     <div class="tabela-forma">
     <div class="tableResponse" :class="[succesActive ? 'succesResponse' : errorActive ? 'errorResponse' : '']">{{responseMessage}}</div>
         <table id="tabelaLibri" class="tabelaUser">
@@ -22,9 +22,9 @@
             </tr>   
         </table>
     </div>
-    <div style="width: 200px;margin: 100px auto;">
+    <div class="message-div">
         <label>Message:</label>
-        <textarea cols="30" rows="10" v-model="Message"></textarea>
+        <textarea style="text-align: center;" cols="30" rows="10" v-model="Message"></textarea>
     </div>
 </div>
 </template>
@@ -159,5 +159,24 @@ export default {
     }
     .tableResponse{
         transition: all .3s ease-in-out;
+    }
+    .message-div{
+        width: 200px;
+        margin: 100px auto;
+    }
+    @media only screen and (max-width: 767px) {
+        .main-div{
+            flex-direction: column;
+        }
+        .tabela-forma{
+            height: auto;
+            width: 100%;
+        }
+        .message-div{
+            margin: 20px 0px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
     }
 </style>
